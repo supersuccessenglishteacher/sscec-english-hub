@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sentence Transformation - SSCEC</title>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:'Hind Siliguri', sans-serif;
+      background:linear-gradient(135deg,#0f172a,#1e293b,#111827);
+      color:#fff;
+      min-height:100vh;
+      padding:25px;
+    }
+
+    .container{
+      max-width:1200px;
+      margin:auto;
+    }
+
+    .hero{
+      background:rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,0.1);
+      backdrop-filter:blur(12px);
+      padding:40px 30px;
+      border-radius:28px;
+      text-align:center;
+      box-shadow:0 10px 40px rgba(0,0,0,0.35);
+      margin-bottom:30px;
+    }
+
+    .center-name {
+      font-size: clamp(24px, 5vw, 42px);
+      font-weight: 700;
+      color: #facc15;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+
+    .address-bar {
+      background: rgba(56, 189, 248, 0.1);
+      padding: 12px;
+      border-radius: 12px;
+      margin: 15px auto;
+      max-width: 800px;
+      font-size: 16px;
+      color: #cbd5e1;
+      border: 1px dashed #38bdf8;
+      line-height: 1.6;
+    }
+
+    .hero h1{
+      font-size: 28px;
+      margin-top: 20px;
+      color: #38bdf8;
+    }
+
+    .hero p{
+      font-size:18px;
+      color:#e2e8f0;
+      margin-top: 10px;
+    }
+
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:18px;
+      margin-bottom:30px;
+    }
+
+    .stat-box{
+      background:rgba(255,255,255,0.08);
+      padding:22px;
+      border-radius:20px;
+      text-align:center;
+      border:1px solid rgba(255,255,255,0.08);
+      transition:0.3s;
+    }
+
+    .stat-box:hover{
+      transform:translateY(-5px);
+      background:rgba(255,255,255,0.12);
+    }
+
+    .stat-box h2{
+      color:#38bdf8;
+      font-size:32px;
+      margin-bottom:8px;
+    }
+
+    .stat-box p{
+      color:#f8fafc;
+      font-size:17px;
+    }
+
+    .section-title{
+      margin:40px 0 18px;
+      font-size:30px;
+      color:#facc15;
+      border-left:6px solid #38bdf8;
+      padding-left:14px;
+    }
+
+    .card{
+      background:rgba(255,255,255,0.07);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:24px;
+      padding:24px;
+      margin-bottom:20px;
+      transition:0.3s;
+      box-shadow:0 8px 25px rgba(0,0,0,0.25);
+    }
+
+    .card:hover{
+      transform:translateY(-4px);
+      background:rgba(255,255,255,0.1);
+    }
+
+    .question{
+      font-size:21px;
+      line-height:1.9;
+      margin-bottom:18px;
+      color:#f8fafc;
+      font-weight:600;
+    }
+
+    .question span{
+      color:#38bdf8;
+      margin-right:8px;
+    }
+
+    .btn{
+      border:none;
+      background:linear-gradient(135deg,#38bdf8,#0ea5e9);
+      color:white;
+      padding:12px 22px;
+      border-radius:12px;
+      font-size:16px;
+      font-weight:600;
+      cursor:pointer;
+      transition:0.3s;
+      font-family:'Poppins',sans-serif;
+    }
+
+    .btn:hover{
+      transform:scale(1.05);
+      background:linear-gradient(135deg,#0ea5e9,#0284c7);
+    }
+
+    .answer{
+      display:none;
+      margin-top:18px;
+      background:#0f172a;
+      padding:18px;
+      border-left:5px solid #22c55e;
+      border-radius:14px;
+      color:#d1fae5;
+      line-height:1.9;
+      font-size:18px;
+    }
+
+    .footer{
+      text-align:center;
+      margin-top:40px;
+      color:#cbd5e1;
+      padding:30px;
+      font-size:16px;
+      background: rgba(0,0,0,0.2);
+      border-radius: 20px;
+    }
+
+    @media(max-width:768px){
+      .hero h1{ font-size:24px; }
+      .question{ font-size:18px; }
+      .center-name { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="hero">
+    <div class="center-name">Super Success Computer Education Center</div>
+    <div class="address-bar">
+      📍 22/1 Bipin Paul Road, Nimta Shyamaprasad Nagar, Kolkata - 700049 <br>
+      📞 যোগাযোগ: 8017247298 / 9874152080
+    </div>
+    <h1>Present Tense: Sentence Transformation Challenge</h1>
+    <p>
+      English Trainer: <strong>Bipul Sarkar</strong>
+    </p>
+  </div>
+
+  <div class="stats">
+    <div class="stat-box">
+      <h2>50</h2>
+      <p>Total Questions</p>
+    </div>
+    <div class="stat-box">
+      <h2>4</h2>
+      <p>Present Tense Types</p>
+    </div>
+    <div class="stat-box">
+      <h2>Interactive</h2>
+      <p>Instant Answers</p>
+    </div>
+  </div>
+
+  <h2 class="section-title">Practice Set</h2>
+
+  <div id="questions"></div>
+
+  <div class="footer">
+    &copy; 2026 <strong>Super Success Computer Education Center (SSCEC)</strong> <br>
+    Designed for Professional English Grammar & Spoken Practice.
+  </div>
+
+</div>
+
+<script>
+const data = [
+  { q:"I play football. → Negative করুন।", a:"I do not play football." },
+  { q:"She goes to school. → Interrogative করুন।", a:"Does she go to school?" },
+  { q:"They watch TV. → Negative করুন।", a:"They do not watch TV." },
+  { q:"He eats rice. → Interrogative করুন।", a:"Does he eat rice?" },
+  { q:"We read books. → Negative করুন।", a:"We do not read books." },
+  { q:"Rita sings well. → Negative করুন।", a:"Rita does not sing well." },
+  { q:"You speak English. → Interrogative করুন।", a:"Do you speak English?" },
+  { q:"My father drives a car. → Negative করুন।", a:"My father does not drive a car." },
+  { q:"The boys play cricket. → Interrogative করুন।", a:"Do the boys play cricket?" },
+  { q:"She likes tea. → Negative করুন।", a:"She does not like tea." },
+  { q:"I am reading a book. → Negative করুন।", a:"I am not reading a book." },
+  { q:"They are playing football. → Interrogative করুন।", a:"Are they playing football?" },
+  { q:"She is cooking food. → Negative করুন।", a:"She is not cooking food." },
+  { q:"We are watching a movie. → Interrogative করুন।", a:"Are we watching a movie?" },
+  { q:"He is writing a letter. → Negative করুন।", a:"He is not writing a letter." },
+  { q:"The children are dancing. → Interrogative করুন।", a:"Are the children dancing?" },
+  { q:"I am learning English. → Negative করুন।", a:"I am not learning English." },
+  { q:"She is wearing a red dress. → Interrogative করুন।", a:"Is she wearing a red dress?" },
+  { q:"They are making noise. → Negative করুন।", a:"They are not making noise." },
+  { q:"You are listening to music. → Interrogative করুন।", a:"Are you listening to music?" },
+  { q:"I have finished my work. → Negative করুন।", a:"I have not finished my work." },
+  { q:"She has eaten lunch. → Interrogative করুন।", a:"Has she eaten lunch?" },
+  { q:"They have completed the project. → Negative করুন।", a:"They have not completed the project." },
+  { q:"He has gone to market. → Interrogative করুন।", a:"Has he gone to market?" },
+  { q:"We have seen the movie. → Negative করুন।", a:"We have not seen the movie." },
+  { q:"Rita has written a poem. → Interrogative করুন।", a:"Has Rita written a poem?" },
+  { q:"I have visited Delhi. → Negative করুন।", a:"I have not visited Delhi." },
+  { q:"They have cleaned the room. → Interrogative করুন।", a:"Have they cleaned the room?" },
+  { q:"She has broken the glass. → Negative করুন।", a:"She has not broken the glass." },
+  { q:"You have solved the problem. → Interrogative করুন।", a:"Have you solved the problem?" },
+  { q:"I have been reading for two hours. → Negative করুন।", a:"I have not been reading for two hours." },
+  { q:"She has been singing since morning. → Interrogative করুন।", a:"Has she been singing since morning?" },
+  { q:"They have been working hard. → Negative করুন।", a:"They have not been working hard." },
+  { q:"He has been waiting for you. → Interrogative করুন।", a:"Has he been waiting for you?" },
+  { q:"We have been studying English. → Negative করুন।", a:"We have not been studying English." },
+  { q:"Rita has been teaching here for five years. → Interrogative করুন।", a:"Has Rita been teaching here for five years?" },
+  { q:"I have been playing cricket since afternoon. → Negative করুন।", a:"I have not been playing cricket since afternoon." },
+  { q:"They have been travelling all day. → Interrogative করুন।", a:"Have they been travelling all day?" },
+  { q:"She has been learning French. → Negative করুন।", a:"She has not been learning French." },
+  { q:"You have been helping me. → Interrogative করুন।", a:"Have you been helping me?" },
+  { q:"He reads newspapers daily. → Yes/No Question করুন।", a:"Does he read newspapers daily?" },
+  { q:"The teacher is explaining the lesson. → Negative করুন।", a:"The teacher is not explaining the lesson." },
+  { q:"They have won the match. → Interrogative করুন।", a:"Have they won the match?" },
+  { q:"She has been sleeping for an hour. → Negative করুন।", a:"She has not been sleeping for an hour." },
+  { q:"I go to office every day. → Interrogative করুন।", a:"Do I go to office every day?" },
+  { q:"We are discussing the topic. → Negative করুন।", a:"We are not discussing the topic." },
+  { q:"He has completed the assignment. → Negative করুন।", a:"He has not completed the assignment." },
+  { q:"They have been practicing regularly. → Interrogative করুন।", a:"Have they been practicing regularly?" },
+  { q:"She teaches mathematics. → Negative করুন।", a:"She does not teach mathematics." },
+  { q:"The boys are running fast. → Interrogative করুন।", a:"Are the boys running fast?" }
+];
+
+const container = document.getElementById('questions');
+
+for(let i=0; i<data.length; i++){
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.innerHTML = `
+    <div class="question"><span>${i+1}.</span> ${data[i].q}</div>
+    <button class="btn" onclick="toggleAnswer(${i})">Show Answer</button>
+    <div class="answer" id="ans${i}">✅ ${data[i].a}</div>
+  `;
+  container.appendChild(card);
+}
+
+function toggleAnswer(id){
+  const ans = document.getElementById('ans'+id);
+  ans.style.display = (ans.style.display === 'block') ? 'none' : 'block';
+}
+</script>
+
+</body>
+</html>

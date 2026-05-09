@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Translation Challenge - SSCEC</title>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *{ margin:0; padding:0; box-sizing:border-box; }
+    body{
+      font-family:'Hind Siliguri', sans-serif;
+      background: linear-gradient(to right, #f8fafc, #f1f5f9);
+      color:#334155;
+      padding:20px;
+    }
+    .container{ max-width:900px; margin:auto; }
+    .header-section {
+      background: #1e293b;
+      color: #facc15;
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 5px solid #38bdf8;
+    }
+    .center-name { font-size: 30px; font-weight: 700; color: #fff; margin-bottom: 5px; }
+    .address { color: #94a3b8; font-size: 14px; margin-bottom: 10px; }
+    .page-title { font-size: 24px; font-weight: 600; }
+    
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 15px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      border-left: 5px solid #38bdf8;
+    }
+    .bengali-text { font-size: 19px; font-weight: 600; color: #1e293b; margin-bottom: 12px; }
+    .bengali-text span { color: #38bdf8; margin-right: 10px; }
+    
+    .btn-translate {
+      align-self: flex-start;
+      background: #38bdf8;
+      color: white;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    .btn-translate:hover { background: #0284c7; }
+
+    .english-ans {
+      display: none;
+      margin-top: 15px;
+      padding: 12px;
+      background: #f0fdf4;
+      border-radius: 8px;
+      color: #166534;
+      font-size: 18px;
+      font-weight: 600;
+      font-family: 'Poppins', sans-serif;
+    }
+    .footer { text-align: center; padding: 30px; color: #64748b; font-size: 14px; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header-section">
+    <div class="center-name">Super Success Computer Education Center</div>
+    <div class="address">22/1 Bipin Paul Road, Nimta, Kolkata - 700049</div>
+    <div class="page-title">৫০টি বাংলা থেকে ইংরেজি অনুবাদ (Present Tense)</div>
+    <p style="color: #fff; margin-top: 5px;">Expert Trainer: Bipul Sarkar</p>
+  </div>
+
+  <div id="translation-list"></div>
+
+  <div class="footer">
+    &copy; 2026 <strong>SSCEC</strong> | Empowering through Knowledge
+  </div>
+</div>
+
+<script>
+const data = [
+  // Present Indefinite
+  { b: "আমি ভাত খাই।", e: "I eat rice." },
+  { b: "সে স্কুলে যায়।", e: "He goes to school." },
+  { b: "সূর্য পূর্ব দিকে ওঠে।", e: "The sun rises in the east." },
+  { b: "তারা ফুটবল খেলে।", e: "They play football." },
+  { b: "মা রান্না করেন।", e: "Mother cooks." },
+  { b: "সে ইংরেজি জানে না।", e: "He does not know English." },
+  { b: "তুমি কি চা খাও?", e: "Do you take tea?" },
+  { b: "পাখিরা আকাশে ওড়ে।", e: "Birds fly in the sky." },
+  { b: "গরু আমাদের দুধ দেয়।", e: "The cow gives us milk." },
+  { b: "সে প্রতিদিন এখানে আসে।", e: "He comes here every day." },
+
+  // Present Continuous
+  { b: "আমি বই পড়ছি।", e: "I am reading a book." },
+  { b: "সে গান গাইছে।", e: "She is singing a song." },
+  { b: "তারা মাঠে কাজ করছে।", e: "They are working in the field." },
+  { b: "বৃষ্টি পড়ছে।", e: "It is raining." },
+  { b: "মা চা তৈরি করছেন।", e: "Mother is making tea." },
+  { b: "আমরা টিভি দেখছি।", e: "We are watching TV." },
+  { b: "তুমি কি ঘুমাচ্ছ?", e: "Are you sleeping?" },
+  { b: "খোকা কাঁদছে।", e: "The baby is crying." },
+  { b: "তারা হইচই করছে না।", e: "They are not making a noise." },
+  { b: "আমি তোমার জন্য অপেক্ষা করছি।", e: "I am waiting for you." },
+
+  // Present Perfect
+  { b: "আমি কাজটি করেছি।", e: "I have done the work." },
+  { b: "সে বাজারে গিয়েছে।", e: "He has gone to market." },
+  { b: "তারা ম্যাচটি জিতেছে।", e: "They have won the match." },
+  { b: "তুমি কি ভাত খেয়েছ?", e: "Have you eaten rice?" },
+  { b: "আমি তাকে দেখিনি।", e: "I have not seen him." },
+  { b: "সূর্য ডুবেছে।", e: "The sun has set." },
+  { b: "সে একটি চিঠি লিখেছে।", e: "He has written a letter." },
+  { b: "মা রান্না শেষ করেছেন।", e: "Mother has finished cooking." },
+  { b: "আমরা তাজমহল দেখেছি।", e: "We have seen the Taj Mahal." },
+  { b: "সে তার কলমটি হারিয়েছে।", e: "He has lost his pen." },
+
+  // Present Perfect Continuous
+  { b: "সকাল থেকে বৃষ্টি পড়ছে।", e: "It has been raining since morning." },
+  { b: "আমি দু-ঘণ্টা ধরে পড়ছি।", e: "I have been reading for two hours." },
+  { b: "সে এক ঘণ্টা ধরে ঘুমাচ্ছে।", e: "He has been sleeping for an hour." },
+  { b: "তারা এখানে পাঁচ বছর ধরে বাস করছে।", e: "They have been living here for five years." },
+  { b: "সোমবার থেকে সে জ্বরে ভুগছে।", e: "He has been suffering from fever since Monday." },
+  { b: "বালকটি অনেকক্ষণ ধরে কাঁদছে।", e: "The boy has been crying for a long time." },
+  { b: "আমরা তিন ঘণ্টা ধরে হাঁটছি।", e: "We have been walking for three hours." },
+  { b: "তুমি কি অনেকক্ষণ ধরে অপেক্ষা করছ?", e: "Have you been waiting for long?" },
+  { b: "মা এক ঘণ্টা ধরে রান্না করছেন।", e: "Mother has been cooking for an hour." },
+  { b: "তারা সকাল থেকে খেলছে।", e: "They have been playing since morning." },
+
+  // Mixed Practice
+  { b: "সে মিথ্যা কথা বলে না।", e: "He does not tell a lie." },
+  { b: "আমি এখন কম্পিউটার শিখছি।", e: "I am learning computer now." },
+  { b: "তুমি কি কখনো দিল্লি গিয়েছ?", e: "Have you ever been to Delhi?" },
+  { b: "সে চার বছর ধরে এই স্কুলে পড়ছে।", e: "He has been studying in this school for four years." },
+  { b: "তারা আজ ফুটবল খেলছে না।", e: "They are not playing football today." },
+  { b: "আমি চিঠিটি পেয়েছি।", e: "I have received the letter." },
+  { b: "চাঁদ আকাশে কিরণ দেয়।", e: "The moon shines in the sky." },
+  { b: "সে কি এখন পড়ছে?", e: "Is he reading now?" },
+  { b: "আমরা অনেকক্ষণ ধরে আলোচনা করছি।", e: "We have been discussing for a long time." },
+  { b: "আমি আমার কর্তব্য পালন করেছি।", e: "I have done my duty." }
+];
+
+const list = document.getElementById('translation-list');
+
+data.forEach((item, index) => {
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.innerHTML = `
+    <div class="bengali-text"><span>${index + 1}.</span> ${item.b}</div>
+    <button class="btn-translate" onclick="showTranslation(${index})">Translate to English</button>
+    <div class="english-ans" id="ans${index}">👉 ${item.e}</div>
+  `;
+  list.appendChild(card);
+});
+
+function showTranslation(id) {
+  const el = document.getElementById('ans' + id);
+  el.style.display = (el.style.display === 'block') ? 'none' : 'block';
+}
+</script>
+
+</body>
+</html>

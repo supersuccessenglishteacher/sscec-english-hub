@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spoken English — Sentence Structure</title>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:    #1a3a6b;
+    --blue:    #2563eb;
+    --blue-lt: #dbeafe;
+    --blue-dk: #1e40af;
+    --green:   #16a34a;
+    --green-lt:#dcfce7;
+    --amber:   #b45309;
+    --amber-lt:#fef3c7;
+    --purple:  #7c3aed;
+    --purple-lt:#ede9fe;
+    --rose:    #be185d;
+    --rose-lt: #fce7f3;
+    --red:     #dc2626;
+    --red-lt:  #fee2e2;
+    --gray:    #64748b;
+    --gray-lt: #f1f5f9;
+    --text:    #1e293b;
+    --text2:   #475569;
+    --border:  #e2e8f0;
+    --white:   #ffffff;
+    --radius:  10px;
+    --shadow:  0 2px 12px rgba(0,0,0,.08);
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', 'Hind Siliguri', sans-serif;
+    background: #f0f4f8;
+    color: var(--text);
+    min-height: 100vh;
+    padding: 0;
+  }
+
+  /* ── Header ── */
+  header {
+    background: linear-gradient(135deg, #1a3a6b 0%, #2563eb 100%);
+    color: #fff;
+    padding: 36px 40px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 260px; height: 260px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.06);
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: 40%;
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.04);
+  }
+  .header-inner { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; }
+  .header-badge {
+    display: inline-block;
+    background: rgba(255,255,255,.15);
+    border: 1px solid rgba(255,255,255,.25);
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  header h1 { font-size: 32px; font-weight: 700; line-height: 1.2; margin-bottom: 6px; }
+  header p  { font-size: 15px; opacity: .8; font-family: 'Hind Siliguri', sans-serif; }
+
+  /* ── Legend ── */
+  .legend-bar {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 40px;
+  }
+  .legend-inner { max-width: 900px; margin: 0 auto; display: flex; gap: 18px; flex-wrap: wrap; align-items: center; }
+  .leg { display: flex; align-items: center; gap: 6px; font-size: 12.5px; color: var(--text2); }
+  .leg-dot { width: 12px; height: 12px; border-radius: 4px; flex-shrink: 0; }
+
+  /* ── Main layout ── */
+  main { max-width: 900px; margin: 0 auto; padding: 32px 40px 60px; }
+
+  /* ── Tab nav ── */
+  .tabs { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 24px; }
+  .tab {
+    padding: 8px 18px;
+    border-radius: 24px;
+    border: 1.5px solid var(--border);
+    background: var(--white);
+    color: var(--text2);
+    font-size: 13.5px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .18s;
+    font-family: inherit;
+  }
+  .tab:hover { border-color: var(--blue); color: var(--blue); }
+  .tab.active { background: var(--navy); color: #fff; border-color: var(--navy); }
+
+  /* ── Panel ── */
+  .panel { display: none; animation: fadeIn .25s ease; }
+  .panel.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* ── Section card ── */
+  .card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-bottom: 18px;
+    box-shadow: var(--shadow);
+  }
+  .card-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── Formula ── */
+  .formula {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    background: #f8fafc;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    margin-bottom: 20px;
+  }
+  .fp {
+    padding: 5px 13px;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1;
+  }
+  .fp-sub  { background: var(--blue-lt);   color: var(--blue-dk); }
+  .fp-vb   { background: var(--green-lt);  color: #14532d; }
+  .fp-obj  { background: var(--amber-lt);  color: var(--amber); }
+  .fp-pl   { background: var(--purple-lt); color: var(--purple); }
+  .fp-aux  { background: var(--rose-lt);   color: var(--rose); }
+  .fp-neg  { background: var(--red-lt);    color: var(--red); }
+  .fp-wh   { background: #f0fdf4;          color: #166534; }
+  .sep { color: var(--gray); font-weight: 600; font-size: 16px; }
+
+  /* ── Examples ── */
+  .examples { display: flex; flex-direction: column; gap: 10px; }
+  .ex {
+    border-left: 3px solid var(--blue);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    background: #f8fafc;
+    padding: 12px 16px;
+  }
+  .ex-en {
+    font-size: 15.5px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 4px;
+    line-height: 1.5;
+  }
+  .ex-bn {
+    font-size: 13.5px;
+    color: var(--text2);
+    font-family: 'Hind Siliguri', sans-serif;
+  }
+  .badge {
+    display: inline-block;
+    padding: 2px 9px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 1px 1px;
+  }
+  .b-sub  { background: var(--blue-lt);   color: var(--blue-dk); }
+  .b-vb   { background: var(--green-lt);  color: #14532d; }
+  .b-obj  { background: var(--amber-lt);  color: var(--amber); }
+  .b-pl   { background: var(--purple-lt); color: var(--purple); }
+  .b-aux  { background: var(--rose-lt);   color: var(--rose); }
+  .b-neg  { background: var(--red-lt);    color: var(--red); }
+  .b-wh   { background: #f0fdf4;          color: #166534; }
+
+  /* ── Tips grid ── */
+  .tips-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+  .tip {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px 16px;
+    box-shadow: var(--shadow);
+    transition: transform .18s;
+  }
+  .tip:hover { transform: translateY(-3px); }
+  .tip-num {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 10px;
+  }
+  .tip h3 { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 5px; }
+  .tip p  { font-size: 13px; color: var(--text2); line-height: 1.6; font-family: 'Hind Siliguri', sans-serif; }
+
+  /* ── Summary table ── */
+  .sum-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .sum-table th {
+    background: var(--navy);
+    color: #fff;
+    padding: 11px 14px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 13px;
+  }
+  .sum-table th:first-child { border-radius: 8px 0 0 0; }
+  .sum-table th:last-child  { border-radius: 0 8px 0 0; }
+  .sum-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); }
+  .sum-table tr:nth-child(even) td { background: #f8fafc; }
+  .sum-table tr:last-child td { border-bottom: none; }
+  .sum-table tr:last-child td:first-child { border-radius: 0 0 0 8px; }
+  .sum-table tr:last-child td:last-child  { border-radius: 0 0 8px 0; }
+  .sum-table .formula-cell { font-family: monospace; font-size: 13px; color: var(--blue-dk); }
+
+  /* ── Footer ── */
+  footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 12px;
+    color: var(--gray);
+    border-top: 1px solid var(--border);
+    background: var(--white);
+    margin-top: 20px;
+  }
+
+  @media (max-width: 600px) {
+    header { padding: 24px 20px 20px; }
+    header h1 { font-size: 22px; }
+    main { padding: 20px 16px 40px; }
+    .legend-bar { padding: 10px 16px; }
+    .card { padding: 18px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="header-badge">Grammar Guide</div>
+    <h1>Spoken English — Sentence Structure</h1>
+    <p>বাক্যের গঠন শিখুন বাংলায় — রঙিন উদাহরণসহ</p>
+  </div>
+</header>
+
+<div class="legend-bar">
+  <div class="legend-inner">
+    <span style="font-size:12px;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.05em">Color Guide:</span>
+    <div class="leg"><div class="leg-dot" style="background:#bfdbfe"></div>Subject (কর্তা)</div>
+    <div class="leg"><div class="leg-dot" style="background:#bbf7d0"></div>Verb (ক্রিয়া)</div>
+    <div class="leg"><div class="leg-dot" style="background:#fde68a"></div>Object (কর্ম)</div>
+    <div class="leg"><div class="leg-dot" style="background:#ddd6fe"></div>Place / Time</div>
+    <div class="leg"><div class="leg-dot" style="background:#fecdd3"></div>Auxiliary Verb</div>
+    <div class="leg"><div class="leg-dot" style="background:#bbf7d0"></div>WH-word</div>
+  </div>
+</div>
+
+<main>
+
+  <!-- TAB NAVIGATION -->
+  <div class="tabs">
+    <button class="tab active" onclick="showTab('affirmative',this)">✔ Affirmative</button>
+    <button class="tab" onclick="showTab('negative',this)">✘ Negative</button>
+    <button class="tab" onclick="showTab('yesno',this)">? Yes/No Question</button>
+    <button class="tab" onclick="showTab('wh',this)">❓ WH Question</button>
+    <button class="tab" onclick="showTab('continuous',this)">⟳ Continuous</button>
+    <button class="tab" onclick="showTab('perfect',this)">✅ Perfect</button>
+    <button class="tab" onclick="showTab('summary',this)">📋 Summary</button>
+    <button class="tab" onclick="showTab('tips',this)">💡 Quick Tips</button>
+  </div>
+
+  <!-- AFFIRMATIVE -->
+  <div id="affirmative" class="panel active">
+    <div class="card">
+      <div class="card-label">Affirmative Sentence — ইতিবাচক বাক্য</div>
+      <div class="formula">
+        <span class="fp fp-sub">Subject</span>
+        <span class="sep">+</span>
+        <span class="fp fp-vb">Verb (s/es)</span>
+        <span class="sep">+</span>
+        <span class="fp fp-obj">Object</span>
+        <span class="sep">+</span>
+        <span class="fp fp-pl">Place / Time</span>
+      </div>
+      <div class="examples">
+        <div class="ex">
+          <div class="ex-en"><span class="badge b-sub">I</span> <span class="badge b-vb">speak</span> <span class="badge b-obj">English</span> <span class="badge b-pl">every day.</span></div>
+          <div class="ex-bn">আমি প্রতিদিন ইংরেজি বলি।</div>
+        </div>
+        <div class="ex">
+          <div class="ex-en"><span class="badge b-sub">She</span> <span class="badge b-vb">goes</span> <span class="badge b-obj">to school</span> <span class="badge b-pl">in the morning.</span></div>
+          <div class="ex-bn">সে সকালে স্কুলে যায়।</div>
+        </div>
+        <div class="ex">
+          <div class="ex-en"><span class="badge b-sub">They</span> <span class="badge b-vb">play</span> <span class="badge b-obj">cricket</span> <span class="badge b-pl">on Sundays.</span></div>
+          <div class="ex-bn">তারা রবিবারে ক্রিকেট খেলে।</div>
+        </div>
+        <div class="ex">
+          <div class="ex-en"><span class="badge b-sub">He</span> <span class="badge b-vb">works</span> <span class="badge b-obj">in a bank</span> <span class="badge b-pl">in Kolkata.</span></div>
+          <div class="ex-bn">সে কলকাতায় একটি ব্যাংকে কাজ করে।</div>
+        </div>
+        <div class="ex">
+          <div class="ex-en"><span class="badge b-sub">We</span> <span class="badge b-vb">eat</span> <span class="badge b-obj">rice and fish</span> <span class="badge b-pl">every day.</span></div>
+          <div class="ex-bn">আমরা প্রতিদিন ভাত ও মাছ খাই।</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NEGATIVE -->
+  <div id="negative" class="panel">
+    <div class="card">
+      <div class="card-label">Negative Sentence — নেতিবাচক বাক্য</div>
+      <div class="formula">
+        <span class="fp fp-sub">Subject</span>
+        <span class="sep">+</span>
+        <span class="fp fp-neg">do not / does not / did not</span>
+        <span class="sep">+</span>
+        <span class="fp fp-vb">Verb (base)</span>
+        <span class="sep">+</span>
+        <span class="fp fp-obj">Object</span>
+      </div>
+      <div class="examples">
+        <div class="ex">
+          <div class="ex-en"><span class="badge b-sub">I</span> <span class="badge b-neg">don't</span> <span class="badge b-vb">like</span> <span class="badge b-obj">coffee.</span></div>
+          <div class="ex-bn">আমি কফি পছন্দ করি না।</div>
+        </div>
+        <div class="ex">
+          <div class="ex-en"><span class="badge b-sub">He</span> <span class="badge b-neg">doesn't</span> <span class="badge b-vb">know</span> <span class="badge b-obj">the answer.</span></div>
+          <div class="ex-bn">সে উত্তর জানে না।</div>
+        </div>
+        <div class="ex">
+          <div class="ex-en"><span class="badge b-sub">They</span> <span class="badge b-neg">didn't</span> <span class="badge b-vb">come</span> <span class="badge b-pl">yesterday.</span></div>
+          <div class="ex-bn">তারা গতকাল আসেনি।</div>
+        </div>
+        <div class="ex">
+          <div class="ex-en"><span class="badge b-sub">She</span> <span class="badge b-neg">doesn't</span> <span class="badge b-vb">eat</span> <span class="badge b-obj">meat.</span></div>
+          <div class="ex-bn">সে মাংস খায় না।</div>
+        </div>
+        <div class="ex">
+          <div class="ex-en"><span class="badge b-sub">We</span> <span class="badge b-neg">don't</span> <span class="badge b-vb">understand</span> <span class="badge b-obj">this topic.</span></div>
+          <div class="ex-bn">আমরা এই বিষয়টি বুঝি না।</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- YES/NO QUESTION -->
+  <div id="yesno" class="panel">
+    <div class="card">
+      <div class="card-label">Yes/No Question — হ্যাঁ/না প্রশ্ন</div>
+      <div class="formula">
+        <span class="fp fp-aux">Do / Does / Did</span>
+        <span class="sep">+</span>
+        <span class="fp fp-sub">Subject</span>
+        <span class="sep">+</span>
+        <span class="fp fp-vb">Verb (base)</span>
+        <span class="sep">+</span>
+        <span class="fp fp-obj">Object ?</span>
+      </div>
+      <div class="examples">
+        <div class="ex">
+          <div class="ex-en"><span class="badge b-aux">Do</span> <span class="badge b-sub">you</span> <span class="badge b-vb">speak</span> <span class="badge b-obj">Bengali?</span></div>
+          <div class="ex-bn">তুমি কি বাংলা বলো?</div>
+        </div>
+        <div class="ex">
+          <div class="ex-en"><span class="badge b-aux">Does</span> <span class="badge b-sub">she</span> <span class="badge b-vb">live</span> <span class="badge b-obj">in Kolkata?</span></div>
+          <div class="ex-bn">সে কি কলকাতায় থাকে?</div>
+        </div>
+        <div class="ex">
+          <div class="ex-en"><span class="badge b-aux">Did</span> <span class="badge b-sub">they</span> <span class="badge b-vb">finish</span> <span class="badge b-obj">the work?</span></div>
+          <div class="ex-bn">তারা কি কাজটি শেষ করেছিল?</div>
+        </div>
+        <div class="ex">
+          <div class="ex-en"><span class="badge b-aux">Do</span> <span class="badge b-sub">you</span> <span class="badge b-vb">know</span> <span class="badge b-obj">him?</span></div>
+          <div class="ex-bn">তুমি কি তাকে চেনো?</div>
+        </div>
+        <div class="ex">
+          <div class="ex-en"><span class="badge b-aux">Does</span> <span class="badge b-sub">he</span> <span class="badge b-vb">play</span> <span class="badge b-obj">cricket?</span></div>
+          <div class="ex-bn">সে কি ক্রিকেট খেলে?</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WH QUESTION -->
+  <div id="wh" class="panel">
+    <div class="card">
+      <div class="card-label">WH Question — তথ্য জিজ্ঞাসা</div>
+      <div class="formula">
+        <span class="fp fp-wh">WH word</span>
+        <span class="sep">+</span>
+        <span class="fp fp-aux">do / does / did / is / are</span>
+        <span class="sep">+</span>
+        <span class="fp fp-sub">Subject</span>
+        <span class="sep">+</span>
+        <span class="fp fp-vb">Verb ?</span>
+      </div>
+      <div class="examples">
+        <div class="ex">
+          <div class="ex-en"><span class="badge b-wh">What</span> <span class="badge b-aux">do</span> <span class="badge b-sub">you</span> <span class="badge b-vb">want?</span></div>
+          <div class="ex-bn">তুমি কী চাও?</div>
+        </div>
+        <div class="ex">
+          <div class="ex-en"><span class="badge b-wh">Where</span> <span class="badge b-aux">does</span> <span class="badge b-sub">he</span> <span class="badge b-vb">work?</span></div>
+          <div class="ex-bn">সে কোথায় কাজ করে?</div>
+        </div>
+        <div class="ex">
+          <div class="ex-en"><span class="badge b-wh">Why</span> <span class="badge b-aux">did</span> <span class="badge b-sub">you</span> <span class="badge b-vb">leave</span> <span class="badge b-pl">early?</span></div>
+          <div class="ex-bn">তুমি কেন আগে চলে গেলে?</div>
+        </div>
+        <div class="ex">
+          <div class="ex-en"><span class="badge b-wh">How</span> <span class="badge b-aux">are</span> <span class="badge b-sub">you?</span></div>
+          <div class="ex-bn">তুমি কেমন আছো?</div>
+        </div>
+        <div class="ex">
+          <div class="ex-en"><span class="badge b-wh">When</span> <span class="badge b-aux">did</span> <span class="badge b-sub">she</span> <span class="badge b-vb">come</span> <span class="badge b-pl">home?</span></div>
+          <div class="ex-bn">সে কখন বাড়ি এলো?</div>
+        </div>
+        <div class="ex">
+          <div class="ex-en"><span class="badge b-wh">Who</span> <span class="badge b-aux">is</span> <span class="badge b-sub">your</span> <span class="badge b-vb">teacher?</span></div>
+          <div class="ex-bn">তোমার শিক্ষক কে?</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTINUOUS -->
+  <div id="continuous" class="panel">
+    <div class="card">
+      <div class="card-label">Continuous Tense — চলমান কাজ</div>
+      <div class="formula">
+        <span class="fp fp-sub">Subject</span>
+        <span class="sep">+</span>
+        <span class="fp fp-aux">am / is / are / was / were</span>
+        <span class="sep">+</span>
+        <span class="fp fp-vb">Verb + ing</span>
+        <span class="sep">+</span>
+        <span class="fp fp-obj">Object</span>
+      </div>
+      <div class="examples">
+        <div class="ex">
+          <div class="ex-en"><span class="badge b-sub">I</span> <span class="badge b-aux">am</span> <span class="badge b-vb">reading</span> <span class="badge b-obj">a book.</span></div>
+          <div class="ex-bn">আমি একটি বই পড়ছি।</div>
+        </div>
+        <div class="ex">
+          <div class="ex-en"><span class="badge b-sub">She</span> <span class="badge b-aux">is</span> <span class="badge b-vb">cooking</span> <span class="badge b-obj">dinner.</span></div>
+          <div class="ex-bn">সে রাতের খাবার রান্না করছে।</div>
+        </div>
+        <div class="ex">
+          <div class="ex-en"><span class="badge b-sub">They</span> <span class="badge b-aux">were</span> <span class="badge b-vb">playing</span> <span class="badge b-obj">football</span> <span class="badge b-pl">yesterday.</span></div>
+          <div class="ex-bn">তারা গতকাল ফুটবল খেলছিল।</div>
+        </div>
+        <div class="ex">
+          <div class="ex-en"><span class="badge b-sub">He</span> <span class="badge b-aux">is</span> <span class="badge b-vb">talking</span> <span class="badge b-pl">on the phone.</span></div>
+          <div class="ex-bn">সে ফোনে কথা বলছে।</div>
+        </div>
+        <div class="ex">
+          <div class="ex-en"><span class="badge b-sub">We</span> <span class="badge b-aux">are</span> <span class="badge b-vb">learning</span> <span class="badge b-obj">English.</span></div>
+          <div class="ex-bn">আমরা ইংরেজি শিখছি।</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PERFECT -->
+  <div id="perfect" class="panel">
+    <div class="card">
+      <div class="card-label">Perfect Tense — সম্পন্ন কাজ</div>
+      <div class="formula">
+        <span class="fp fp-sub">Subject</span>
+        <span class="sep">+</span>
+        <span class="fp fp-aux">have / has / had</span>
+        <span class="sep">+</span>
+        <span class="fp fp-vb">Verb (3rd form)</span>
+        <span class="sep">+</span>
+        <span class="fp fp-obj">Object</span>
+      </div>
+      <div class="examples">
+        <div class="ex">
+          <div class="ex-en"><span class="badge b-sub">I</span> <span class="badge b-aux">have</span> <span class="badge b-vb">eaten</span> <span class="badge b-obj">lunch.</span></div>
+          <div class="ex-bn">আমি দুপুরের খাবার খেয়েছি।</div>
+        </div>
+        <div class="ex">
+          <div class="ex-en"><span class="badge b-sub">She</span> <span class="badge b-aux">has</span> <span class="badge b-vb">finished</span> <span class="badge b-obj">her homework.</span></div>
+          <div class="ex-bn">সে তার হোমওয়ার্ক শেষ করেছে।</div>
+        </div>
+        <div class="ex">
+          <div class="ex-en"><span class="badge b-sub">He</span> <span class="badge b-aux">had</span> <span class="badge b-vb">left</span> <span class="badge b-pl">before I arrived.</span></div>
+          <div class="ex-bn">আমি পৌঁছানোর আগেই সে চলে গিয়েছিল।</div>
+        </div>
+        <div class="ex">
+          <div class="ex-en"><span class="badge b-sub">They</span> <span class="badge b-aux">have</span> <span class="badge b-vb">gone</span> <span class="badge b-pl">to Delhi.</span></div>
+          <div class="ex-bn">তারা দিল্লি চলে গেছে।</div>
+        </div>
+        <div class="ex">
+          <div class="ex-en"><span class="badge b-sub">We</span> <span class="badge b-aux">have</span> <span class="badge b-vb">completed</span> <span class="badge b-obj">the project.</span></div>
+          <div class="ex-bn">আমরা প্রজেক্টটি সম্পন্ন করেছি।</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUMMARY TABLE -->
+  <div id="summary" class="panel">
+    <div class="card">
+      <div class="card-label">সব Tense-এর সারসংক্ষেপ — Quick Reference Table</div>
+      <div style="overflow-x:auto;">
+        <table class="sum-table">
+          <thead>
+            <tr>
+              <th>Tense</th>
+              <th>Formula (সূত্র)</th>
+              <th>উদাহরণ</th>
+              <th>বাংলা অর্থ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Present Simple</strong><br><small style="color:#64748b">ইতিবাচক</small></td>
+              <td class="formula-cell">S + V(s/es) + O</td>
+              <td>She reads books.</td>
+              <td>সে বই পড়ে।</td>
+            </tr>
+            <tr>
+              <td><strong>Present Negative</strong></td>
+              <td class="formula-cell">S + don't/doesn't + V + O</td>
+              <td>I don't eat fish.</td>
+              <td>আমি মাছ খাই না।</td>
+            </tr>
+            <tr>
+              <td><strong>Yes/No Question</strong></td>
+              <td class="formula-cell">Do/Does + S + V + O?</td>
+              <td>Do you know him?</td>
+              <td>তুমি কি তাকে চেনো?</td>
+            </tr>
+            <tr>
+              <td><strong>WH Question</strong></td>
+              <td class="formula-cell">WH + do/does + S + V?</td>
+              <td>Where do you live?</td>
+              <td>তুমি কোথায় থাকো?</td>
+            </tr>
+            <tr>
+              <td><strong>Present Continuous</strong></td>
+              <td class="formula-cell">S + am/is/are + V-ing + O</td>
+              <td>He is sleeping.</td>
+              <td>সে ঘুমাচ্ছে।</td>
+            </tr>
+            <tr>
+              <td><strong>Past Simple</strong></td>
+              <td class="formula-cell">S + V(2nd form) + O</td>
+              <td>They went to market.</td>
+              <td>তারা বাজারে গিয়েছিল।</td>
+            </tr>
+            <tr>
+              <td><strong>Past Continuous</strong></td>
+              <td class="formula-cell">S + was/were + V-ing + O</td>
+              <td>I was watching TV.</td>
+              <td>আমি টিভি দেখছিলাম।</td>
+            </tr>
+            <tr>
+              <td><strong>Present Perfect</strong></td>
+              <td class="formula-cell">S + have/has + V(3rd) + O</td>
+              <td>She has come home.</td>
+              <td>সে বাড়ি এসেছে।</td>
+            </tr>
+            <tr>
+              <td><strong>Past Perfect</strong></td>
+              <td class="formula-cell">S + had + V(3rd) + O</td>
+              <td>He had eaten before.</td>
+              <td>সে আগেই খেয়েছিল।</td>
+            </tr>
+            <tr>
+              <td><strong>Future Simple</strong></td>
+              <td class="formula-cell">S + will + V(base) + O</td>
+              <td>I will call you.</td>
+              <td>আমি তোমাকে ফোন করব।</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIPS -->
+  <div id="tips" class="panel">
+    <div class="tips-grid">
+      <div class="tip">
+        <div class="tip-num">১</div>
+        <h3>Subject সবসময় আগে</h3>
+        <p>English-এ বাক্য সবসময় Subject দিয়ে শুরু হয়। I, You, He, She, They — কর্তা আগে, ক্রিয়া পরে।</p>
+      </div>
+      <div class="tip">
+        <div class="tip-num">২</div>
+        <h3>He/She/It → s বা es</h3>
+        <p>3rd person singular-এ Present tense-এ verb-এর শেষে s বা es যোগ হয়। যেমন: goes, plays, watches।</p>
+      </div>
+      <div class="tip">
+        <div class="tip-num">৩</div>
+        <h3>Negative-এ do/does/did</h3>
+        <p>না-বাচক বাক্যে don't / doesn't / didn't ব্যবহার করুন। এরপর verb-এর base form আসে।</p>
+      </div>
+      <div class="tip">
+        <div class="tip-num">৪</div>
+        <h3>Question-এ Inversion</h3>
+        <p>প্রশ্নে Auxiliary verb (do/is/have) Subject-এর আগে চলে যায়। "You are" → "Are you?"</p>
+      </div>
+      <div class="tip">
+        <div class="tip-num">৫</div>
+        <h3>WH word সবার আগে</h3>
+        <p>What, Where, When, Why, How — এই শব্দগুলো বাক্যের একদম শুরুতে বসে।</p>
+      </div>
+      <div class="tip">
+        <div class="tip-num">৬</div>
+        <h3>Time/Place — শেষে</h3>
+        <p>সময় ও স্থান সাধারণত বাক্যের শেষে আসে। "I go to school in the morning."</p>
+      </div>
+      <div class="tip">
+        <div class="tip-num">৭</div>
+        <h3>Continuous → ing</h3>
+        <p>চলমান কাজ বোঝাতে verb-এর শেষে -ing যোগ করুন। am/is/are দিয়ে শুরু। যেমন: is running।</p>
+      </div>
+      <div class="tip">
+        <div class="tip-num">৮</div>
+        <h3>Perfect → have + V3</h3>
+        <p>সম্পন্ন কাজে have/has/had এবং verb-এর 3rd form ব্যবহার করুন। যেমন: have eaten, has gone।</p>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <strong>Super Success Computer Education Center</strong><br>
+  22/1 Bipin Paul Road, Nimta Shyamaprasad Nagar, Kolkata-700049<br>
+  Contact: 8017247298 | 9874152080<br>
+  <span style="font-size: 11px; color: #94a3b8; margin-top: 10px; display: block;">© 2026 All Rights Reserved</span>
+</footer>
+
+<script>
+  function showTab(id, btn) {
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
+</body>
+</html>

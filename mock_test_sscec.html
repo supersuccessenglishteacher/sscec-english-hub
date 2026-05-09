@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Online Mock Test - SSCEC</title>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root { --primary: #1e3a8a; --secondary: #3b82f6; --success: #10b981; --error: #ef4444; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: 'Hind Siliguri', sans-serif; background: #f1f5f9; padding: 20px; }
+    .container { max-width: 900px; margin: auto; background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+    
+    header { text-align: center; border-bottom: 3px solid var(--primary); padding-bottom: 20px; margin-bottom: 30px; }
+    .center-name { font-size: 32px; font-weight: 700; color: var(--primary); }
+    .address { font-size: 14px; color: #64748b; }
+    .exam-info { margin-top: 15px; background: #eff6ff; padding: 10px; border-radius: 10px; font-weight: 600; color: var(--secondary); }
+
+    .user-info { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 30px; }
+    input { padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px; font-family: inherit; font-size: 16px; }
+    input:focus { border-color: var(--secondary); outline: none; }
+
+    .question-box { margin-bottom: 25px; padding: 20px; border: 1px solid #e2e8f0; border-radius: 12px; background: #fff; transition: 0.3s; }
+    .q-text { font-size: 18px; font-weight: 600; margin-bottom: 15px; display: block; }
+    .options { display: grid; gap: 10px; }
+    .option-label { display: flex; align-items: center; padding: 10px; border: 1px solid #cbd5e1; border-radius: 8px; cursor: pointer; transition: 0.2s; }
+    .option-label:hover { background: #f8fafc; }
+    input[type="radio"] { margin-right: 10px; cursor: pointer; }
+
+    .submit-btn { width: 100%; background: var(--primary); color: white; border: none; padding: 15px; border-radius: 10px; font-size: 20px; font-weight: 700; cursor: pointer; margin-top: 20px; }
+    .submit-btn:hover { background: #1e40af; }
+
+    #result { display: none; margin-top: 30px; text-align: center; padding: 20px; border-radius: 15px; background: #f0fdf4; border: 2px solid var(--success); }
+    .score { font-size: 40px; color: var(--success); font-weight: 800; }
+    .wa-btn { display: inline-block; background: #25d366; color: white; padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: 700; margin-top: 15px; }
+    
+    .correct { border: 2px solid var(--success) !important; background: #f0fdf4; }
+    .wrong { border: 2px solid var(--error) !important; background: #fef2f2; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div class="center-name">Super Success Computer Education Center</div>
+    <div class="address">22/1 Bipin Paul Road, Nimta, Kolkata - 700049</div>
+    <div class="exam-info">Present Tense Master Challenge | Full Marks: 50</div>
+    <p style="margin-top:5px;">Instructor: Bipul Sarkar</p>
+  </header>
+
+  <div class="user-info">
+    <input type="text" id="userName" placeholder="ছাত্রের নাম লিখুন..." required>
+    <input type="text" id="userRoll" placeholder="রোল নম্বর বা ফোন নম্বর..." required>
+  </div>
+
+  <div id="exam-questions"></div>
+
+  <button class="submit-btn" onclick="calculateScore()">Submit Test & See Result</button>
+
+  <div id="result">
+    <h2>আপনার ফলাফল (Result)</h2>
+    <div class="score" id="finalScore">0 / 50</div>
+    <p id="feedback"></p>
+    <a href="#" id="waLink" class="wa-btn">স্যারকে WhatsApp-এ রিপোর্ট পাঠান</a>
+  </div>
+</div>
+
+<script>
+const quizData = [
+  // Transformation (10)
+  { q: "I play cricket. (Negative)", o: ["I not play cricket", "I do not play cricket", "I am not play cricket"], a: 1 },
+  { q: "She goes home. (Interrogative)", o: ["Does she go home?", "Do she goes home?", "Is she go home?"], a: 0 },
+  { q: "They are running. (Present Perfect)", o: ["They have run", "They has run", "They had run"], a: 0 },
+  { q: "We have won. (Present Continuous)", o: ["We are win", "We are winning", "We were winning"], a: 1 },
+  { q: "It rains. (Present Perfect Continuous)", o: ["It is raining", "It has rained", "It has been raining"], a: 2 },
+  { q: "I write a letter. (Negative)", o: ["I write not a letter", "I do not write a letter", "I am not write"], a: 1 },
+  { q: "He is sleeping. (Present Indefinite)", o: ["He sleeps", "He sleep", "He is sleep"], a: 0 },
+  { q: "Do you know him? (Assertive)", o: ["You know him", "You are know him", "You known him"], a: 0 },
+  { q: "The boy cries. (Present Continuous)", o: ["The boy crying", "The boy is crying", "The boy has cried"], a: 1 },
+  { q: "I have seen him. (Interrogative)", o: ["Have I seen him?", "Do I seen him?", "Am I seen him?"], a: 0 },
+
+  // Error Correction (10)
+  { q: "He go to school.", o: ["He goes", "He is go", "He going"], a: 0 },
+  { q: "I has a pen.", o: ["I have", "I am", "I has"], a: 0 },
+  { q: "They is playing.", o: ["They are", "They am", "They was"], a: 0 },
+  { q: "She don't like tea.", o: ["She doesn't", "She not", "She don't"], a: 0 },
+  { q: "The sun rise in the east.", o: ["rises", "rising", "rise"], a: 0 },
+  { q: "Are you has lunch?", o: ["Have you had", "Do you have", "Have you eaten"], a: 2 },
+  { q: "It have been raining.", o: ["It has been", "It are been", "It was been"], a: 0 },
+  { q: "Birds flies.", o: ["Bird fly", "Birds fly", "Birds flying"], a: 1 },
+  { q: "We am happy.", o: ["We are", "We is", "We was"], a: 0 },
+  { q: "She singing a song.", o: ["She is singing", "She has sing", "She sing"], a: 0 },
+
+  // Since & For (10)
+  { q: "I have been reading ___ 2 hours.", o: ["Since", "For", "From"], a: 1 },
+  { q: "She has been ill ___ Monday.", o: ["Since", "For", "By"], a: 0 },
+  { q: "They have lived here ___ 2010.", o: ["For", "Since", "In"], a: 1 },
+  { q: "It has rained ___ morning.", o: ["Since", "For", "To"], a: 0 },
+  { q: "Waiting ___ a long time.", o: ["Since", "For", "Till"], a: 1 },
+  { q: "He has slept ___ 10 PM.", o: ["Since", "For", "In"], a: 0 },
+  { q: "Learning computer ___ six months.", o: ["Since", "For", "At"], a: 1 },
+  { q: "Working ___ childhood.", o: ["Since", "For", "From"], a: 0 },
+  { q: "Travelling ___ 5 days.", o: ["Since", "For", "On"], a: 1 },
+  { q: "Standing here ___ 5 o'clock.", o: ["For", "Since", "At"], a: 1 },
+
+  // Translation (20)
+  { q: "আমি ভাত খাই।", o: ["I eat rice", "I am eat rice", "I eaten rice"], a: 0 },
+  { q: "সে স্কুলে যাচ্ছে।", o: ["He goes school", "He is going to school", "He is go school"], a: 1 },
+  { q: "তারা কাজটি করেছে।", o: ["They did", "They have done the work", "They has done"], a: 1 },
+  { q: "সকাল থেকে বৃষ্টি হচ্ছে।", o: ["It is raining", "It has been raining since morning", "It rains from morning"], a: 1 },
+  { q: "মা রান্না করছেন।", o: ["Mother cooks", "Mother is cooking", "Mother has cook"], a: 1 },
+  { q: "সূর্য ওঠে।", o: ["The sun rises", "The sun rise", "Sun rising"], a: 0 },
+  { q: "পাখিরা ওড়ে।", o: ["Birds fly", "Birds flies", "Bird fly"], a: 0 },
+  { q: "আমরা টিভি দেখছি না।", o: ["We not watch TV", "We are not watching TV", "We don't watching"], a: 1 },
+  { q: "সে কি ঘুমিয়েছে?", o: ["Has he slept?", "Is he sleep?", "Does he slept?"], a: 0 },
+  { q: "আমি তাকে চিনি।", o: ["I am knowing him", "I know him", "I knows him"], a: 1 },
+  { q: "তুমি কি খেলছ?", o: ["Do you play?", "Are you playing?", "Have you play?"], a: 1 },
+  { b: "সে গান গায় না।", o: ["He not sing", "He does not sing", "He isn't sing"], a: 1 },
+  { q: "এক ঘণ্টা ধরে বৃষ্টি হচ্ছে।", o: ["It is raining for an hour", "It has been raining for an hour", "It rains for hour"], a: 1 },
+  { q: "তারা বাড়ি গিয়েছে।", o: ["They go home", "They have gone home", "They are go home"], a: 1 },
+  { q: "তুমি কি বই পড়ছ?", o: ["Do you read?", "Are you reading a book?", "Have you read?"], a: 1 },
+  { q: "সে স্কুলে যায় না।", o: ["He not go", "He does not go to school", "He don't go"], a: 1 },
+  { q: "আমরা জিতেছি।", o: ["We won", "We have won", "We are win"], a: 1 },
+  { q: "গরু দুধ দেয়।", o: ["Cow give milk", "The cow gives milk", "Cow giving milk"], a: 1 },
+  { q: "খোকা কাঁদছে।", o: ["Baby cry", "The baby is crying", "Baby is cry"], a: 1 },
+  { q: "আমি চিঠিটি লিখেছি।", o: ["I wrote letter", "I have written the letter", "I am write letter"], a: 1 }
+];
+
+const container = document.getElementById('exam-questions');
+quizData.forEach((item, index) => {
+  const div = document.createElement('div');
+  div.className = 'question-box';
+  div.id = 'qbox' + index;
+  div.innerHTML = `
+    <span class="q-text">${index + 1}. ${item.q}</span>
+    <div class="options">
+      ${item.o.map((opt, i) => `
+        <label class="option-label">
+          <input type="radio" name="q${index}" value="${i}"> ${opt}
+        </label>
+      `).join('')}
+    </div>
+  `;
+  container.appendChild(div);
+});
+
+function calculateScore() {
+  const name = document.getElementById('userName').value;
+  const roll = document.getElementById('userRoll').value;
+
+  if(!name || !roll) {
+    alert("দয়া করে নাম এবং রোল নম্বর লিখুন!");
+    return;
+  }
+
+  let score = 0;
+  quizData.forEach((item, index) => {
+    const selected = document.querySelector(`input[name="q${index}"]:checked`);
+    const qBox = document.getElementById('qbox' + index);
+    
+    if(selected && parseInt(selected.value) === item.a) {
+      score++;
+      qBox.classList.add('correct');
+    } else {
+      qBox.classList.add('wrong');
+    }
+  });
+
+  document.getElementById('finalScore').innerText = `${score} / 50`;
+  document.getElementById('result').style.display = 'block';
+  window.scrollTo(0, document.body.scrollHeight);
+
+  // WhatsApp Link Generation
+  const msg = encodeURIComponent(`*SSCEC Online Mock Test Report*\n\nName: ${name}\nRoll/Phone: ${roll}\nScore: ${score} out of 50\nDate: ${new Date().toLocaleDateString()}`);
+  document.getElementById('waLink').href = `https://wa.me/918017247298?text=${msg}`;
+}
+</script>
+
+</body>
+</html>

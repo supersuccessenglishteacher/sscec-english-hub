@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spoken English — Common Conversations | Super Success Computer Education Center</title>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy:     #0f2d5e;
+  --blue:     #1a56db;
+  --blue2:    #2563eb;
+  --blue-lt:  #dbeafe;
+  --teal:     #0d9488;
+  --teal-lt:  #ccfbf1;
+  --green:    #15803d;
+  --green-lt: #dcfce7;
+  --amber:    #b45309;
+  --amber-lt: #fef3c7;
+  --purple:   #6d28d9;
+  --purple-lt:#ede9fe;
+  --rose:     #be185d;
+  --rose-lt:  #fce7f3;
+  --red:      #dc2626;
+  --red-lt:   #fee2e2;
+  --gray:     #64748b;
+  --gray-lt:  #f1f5f9;
+  --text:     #1e293b;
+  --text2:    #475569;
+  --border:   #e2e8f0;
+  --white:    #ffffff;
+  --radius:   12px;
+  --shadow:   0 2px 16px rgba(0,0,0,.08);
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', 'Hind Siliguri', sans-serif;
+  background: #eef2f7;
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* ══ HEADER ══ */
+header {
+  background: linear-gradient(135deg, #0f2d5e 0%, #1a56db 60%, #0d9488 100%);
+  color: #fff;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+.header-dots {
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,.12) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+.header-inner {
+  position: relative; z-index: 1;
+  max-width: 980px; margin: 0 auto;
+  padding: 36px 40px 30px;
+  display: flex; align-items: flex-start; gap: 24px;
+}
+.logo-circle {
+  width: 72px; height: 72px; flex-shrink: 0;
+  border-radius: 50%;
+  background: rgba(255,255,255,.18);
+  border: 2px solid rgba(255,255,255,.35);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 28px;
+}
+.header-text { flex: 1; }
+.inst-badge {
+  display: inline-block;
+  background: rgba(255,255,255,.18);
+  border: 1px solid rgba(255,255,255,.3);
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+.inst-name {
+  font-size: 22px; font-weight: 800; line-height: 1.25;
+  margin-bottom: 4px;
+}
+.inst-addr {
+  font-size: 12.5px; opacity: .8;
+  font-family: 'Hind Siliguri', sans-serif;
+  line-height: 1.6;
+}
+.inst-phones {
+  display: flex; gap: 10px; flex-wrap: wrap;
+  margin-top: 8px;
+}
+.phone-pill {
+  display: flex; align-items: center; gap: 5px;
+  background: rgba(255,255,255,.15);
+  border: 1px solid rgba(255,255,255,.25);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 13px; font-weight: 600;
+}
+.phone-icon { font-size: 14px; }
+
+/* course title strip */
+.course-strip {
+  background: rgba(0,0,0,.25);
+  padding: 14px 40px;
+  display: flex; align-items: center; gap: 16px;
+  position: relative; z-index: 1;
+}
+.course-strip-inner { max-width: 980px; margin: 0 auto; width: 100%; display: flex; align-items: center; gap: 16px; }
+.course-title { font-size: 20px; font-weight: 700; }
+.course-sub { font-size: 13px; opacity: .75; font-family: 'Hind Siliguri', sans-serif; }
+
+/* ══ MAIN ══ */
+main { max-width: 980px; margin: 0 auto; padding: 32px 40px 60px; }
+
+/* ══ CATEGORY TABS ══ */
+.cat-tabs {
+  display: flex; gap: 8px; flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+.cat-tab {
+  display: flex; align-items: center; gap: 6px;
+  padding: 9px 18px;
+  border-radius: 24px;
+  border: 1.5px solid var(--border);
+  background: var(--white);
+  color: var(--text2);
+  font-size: 13.5px; font-weight: 500;
+  cursor: pointer;
+  transition: all .18s;
+  font-family: inherit;
+}
+.cat-tab:hover { border-color: var(--blue); color: var(--blue); }
+.cat-tab.active { background: var(--navy); color: #fff; border-color: var(--navy); }
+.cat-tab .dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; opacity: .6; }
+
+/* ══ PANELS ══ */
+.panel { display: none; }
+.panel.active { display: block; animation: fadeUp .25s ease; }
+@keyframes fadeUp { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+
+/* ══ TOPIC LABEL ══ */
+.topic-label {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: var(--gray); margin-bottom: 16px;
+}
+.topic-label::after { content:''; flex:1; height:1px; background:var(--border); }
+
+/* ══ CONVERSATION CARD ══ */
+.conv-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.conv-header {
+  padding: 14px 20px 12px;
+  display: flex; align-items: center; gap: 10px;
+  border-bottom: 1px solid var(--border);
+}
+.conv-num {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 700;
+  flex-shrink: 0;
+}
+.conv-topic { font-size: 14px; font-weight: 600; color: var(--text); }
+.conv-sub   { font-size: 12px; color: var(--gray); font-family: 'Hind Siliguri', sans-serif; }
+.conv-body  { padding: 16px 20px; display: flex; flex-direction: column; gap: 8px; }
+
+/* ══ CHAT BUBBLES ══ */
+.bubble-row {
+  display: flex; align-items: flex-start; gap: 10px;
+}
+.bubble-row.right { flex-direction: row-reverse; }
+.avatar {
+  width: 32px; height: 32px; flex-shrink: 0;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 700;
+}
+.av-a { background: #dbeafe; color: #1e40af; }
+.av-b { background: #dcfce7; color: #14532d; }
+.bubble {
+  max-width: 80%;
+  padding: 9px 14px;
+  border-radius: 14px;
+  font-size: 14px;
+  line-height: 1.55;
+}
+.bubble-row:not(.right) .bubble {
+  background: #f1f5f9;
+  border-radius: 4px 14px 14px 14px;
+  color: var(--text);
+}
+.bubble-row.right .bubble {
+  background: #dbeafe;
+  border-radius: 14px 4px 14px 14px;
+  color: #1e3a8a;
+}
+.bubble .en { font-weight: 500; display: block; }
+.bubble .bn { font-size: 12px; color: var(--gray); font-family: 'Hind Siliguri', sans-serif; display: block; margin-top: 2px; }
+.bubble-row.right .bubble .bn { color: #3b82f6; }
+.speaker-name {
+  font-size: 11px; font-weight: 600;
+  color: var(--gray); margin-bottom: 2px;
+  padding: 0 4px;
+}
+.bubble-row.right .speaker-name { text-align: right; }
+
+/* ══ VOCAB BOX ══ */
+.vocab-box {
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  margin-top: 6px;
+}
+.vocab-title {
+  font-size: 11px; font-weight: 700;
+  letter-spacing: .06em; text-transform: uppercase;
+  color: var(--amber); margin-bottom: 6px;
+}
+.vocab-list {
+  display: flex; flex-wrap: wrap; gap: 6px;
+}
+.vocab-pill {
+  background: #fef3c7;
+  border: 1px solid #fde68a;
+  border-radius: 6px;
+  padding: 3px 10px;
+  font-size: 12.5px; font-weight: 500;
+  color: #92400e;
+}
+
+/* ══ PHRASE CARDS ══ */
+.phrase-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.phrase-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  box-shadow: 0 1px 6px rgba(0,0,0,.05);
+  transition: transform .15s;
+}
+.phrase-card:hover { transform: translateY(-2px); }
+.phrase-en { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 3px; }
+.phrase-bn { font-size: 13px; color: var(--text2); font-family: 'Hind Siliguri', sans-serif; }
+.phrase-use { font-size: 11.5px; color: var(--teal); margin-top: 4px; font-style: italic; }
+
+/* ══ FOOTER ══ */
+footer {
+  background: var(--navy);
+  color: rgba(255,255,255,.75);
+  text-align: center;
+  padding: 20px 40px;
+  font-size: 12.5px;
+  line-height: 1.8;
+}
+footer strong { color: #fff; }
+footer .f-phones { margin-top: 4px; font-size: 13px; }
+
+@media (max-width: 640px) {
+  .header-inner { flex-direction: column; padding: 24px 20px 20px; gap: 16px; }
+  .course-strip { padding: 12px 20px; }
+  main { padding: 20px 16px 40px; }
+  .inst-name { font-size: 18px; }
+  .bubble { max-width: 90%; font-size: 13px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<header>
+  <div class="header-dots"></div>
+  <div class="header-inner">
+    <div class="logo-circle">🎓</div>
+    <div class="header-text">
+      <div class="inst-badge">Established Institute</div>
+      <div class="inst-name">Super Success Computer Education Center</div>
+      <div class="inst-addr">22/1 Bipin Paul Road, Nimta Shyamaprasad Nagar, Kolkata – 700049, West Bengal</div>
+      <div class="inst-phones">
+        <div class="phone-pill"><span class="phone-icon">📞</span> 8017247298</div>
+        <div class="phone-pill"><span class="phone-icon">📞</span> 9874152080</div>
+      </div>
+    </div>
+  </div>
+  <div class="course-strip">
+    <div class="course-strip-inner">
+      <div>
+        <div class="course-title">💬 Spoken English — Common Conversations</div>
+        <div class="course-sub">দৈনন্দিন জীবনের সাধারণ ইংরেজি কথোপকথন — বাংলা অনুবাদসহ</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ══ MAIN ══ -->
+<main>
+
+  <!-- Category Tabs -->
+  <div class="cat-tabs">
+    <button class="cat-tab active" onclick="show('greet',this)"><span class="dot"></span>Greetings</button>
+    <button class="cat-tab" onclick="show('intro',this)"><span class="dot"></span>Introduction</button>
+    <button class="cat-tab" onclick="show('school',this)"><span class="dot"></span>At School</button>
+    <button class="cat-tab" onclick="show('shop',this)"><span class="dot"></span>Shopping</button>
+    <button class="cat-tab" onclick="show('doctor',this)"><span class="dot"></span>Doctor</button>
+    <button class="cat-tab" onclick="show('phone',this)"><span class="dot"></span>Phone Call</button>
+    <button class="cat-tab" onclick="show('travel',this)"><span class="dot"></span>Travel</button>
+    <button class="cat-tab" onclick="show('office',this)"><span class="dot"></span>Office</button>
+    <button class="cat-tab" onclick="show('phrases',this)"><span class="dot"></span>Daily Phrases</button>
+  </div>
+
+  <!-- ══ GREETINGS ══ -->
+  <div id="greet" class="panel active">
+    <div class="topic-label">😊 Greetings & Farewells — অভিবাদন ও বিদায়</div>
+
+    <div class="conv-card">
+      <div class="conv-header">
+        <div class="conv-num" style="background:#dbeafe;color:#1e40af">1</div>
+        <div><div class="conv-topic">Morning Greeting — সকালের অভিবাদন</div><div class="conv-sub">দুজন বন্ধুর মধ্যে</div></div>
+      </div>
+      <div class="conv-body">
+        <div class="bubble-row">
+          <div class="avatar av-a">A</div>
+          <div><div class="speaker-name">Rahul</div>
+          <div class="bubble"><span class="en">Good morning! How are you?</span><span class="bn">শুভ সকাল! তুমি কেমন আছো?</span></div></div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar av-b">B</div>
+          <div><div class="speaker-name">Priya</div>
+          <div class="bubble"><span class="en">Good morning! I'm fine, thank you. And you?</span><span class="bn">শুভ সকাল! আমি ভালো আছি, ধন্যবাদ। আর তুমি?</span></div></div>
+        </div>
+        <div class="bubble-row">
+          <div class="avatar av-a">A</div>
+          <div><div class="bubble"><span class="en">I'm doing great! Have a nice day.</span><span class="bn">আমি দারুণ আছি! তোমার দিনটা ভালো কাটুক।</span></div></div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar av-b">B</div>
+          <div><div class="bubble"><span class="en">Thank you! You too. See you later!</span><span class="bn">ধন্যবাদ! তোমারও। পরে দেখা হবে!</span></div></div>
+        </div>
+        <div class="vocab-box">
+          <div class="vocab-title">📌 Key Phrases</div>
+          <div class="vocab-list">
+            <span class="vocab-pill">Good morning</span>
+            <span class="vocab-pill">How are you?</span>
+            <span class="vocab-pill">I'm fine</span>
+            <span class="vocab-pill">Have a nice day</span>
+            <span class="vocab-pill">See you later</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="conv-card">
+      <div class="conv-header">
+        <div class="conv-num" style="background:#dcfce7;color:#14532d">2</div>
+        <div><div class="conv-topic">Meeting after a long time — অনেকদিন পর দেখা</div><div class="conv-sub">দুই পুরনো বন্ধু</div></div>
+      </div>
+      <div class="conv-body">
+        <div class="bubble-row">
+          <div class="avatar av-a">A</div>
+          <div><div class="bubble"><span class="en">Oh wow! Long time no see! Where have you been?</span><span class="bn">আরে বাবা! অনেকদিন দেখা হয়নি! তুমি কোথায় ছিলে?</span></div></div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar av-b">B</div>
+          <div><div class="bubble"><span class="en">I was busy with my exams. How are things with you?</span><span class="bn">আমি পরীক্ষায় ব্যস্ত ছিলাম। তোমার কেমন চলছে?</span></div></div>
+        </div>
+        <div class="bubble-row">
+          <div class="avatar av-a">A</div>
+          <div><div class="bubble"><span class="en">Everything is going well. Let's catch up sometime!</span><span class="bn">সব ভালোই চলছে। কোনোদিন একসাথে বসা যাক!</span></div></div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar av-b">B</div>
+          <div><div class="bubble"><span class="en">Sure! I'll call you this weekend.</span><span class="bn">অবশ্যই! আমি এই সপ্তাহান্তে তোমাকে ফোন করব।</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ INTRODUCTION ══ -->
+  <div id="intro" class="panel">
+    <div class="topic-label">🙋 Introduction — নিজের পরিচয়</div>
+
+    <div class="conv-card">
+      <div class="conv-header">
+        <div class="conv-num" style="background:#ede9fe;color:#5b21b6">1</div>
+        <div><div class="conv-topic">Self Introduction — নিজের পরিচয় দেওয়া</div><div class="conv-sub">নতুন পরিবেশে</div></div>
+      </div>
+      <div class="conv-body">
+        <div class="bubble-row">
+          <div class="avatar av-a">A</div>
+          <div><div class="bubble"><span class="en">Hi! I don't think we've met. I'm Sourav.</span><span class="bn">হ্যালো! মনে হচ্ছে আমাদের আগে পরিচয় হয়নি। আমি সৌরভ।</span></div></div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar av-b">B</div>
+          <div><div class="bubble"><span class="en">Nice to meet you, Sourav! I'm Ananya. Where are you from?</span><span class="bn">তোমার সাথে পরিচিত হয়ে ভালো লাগলো, সৌরভ! আমি অনন্যা। তুমি কোথা থেকে?</span></div></div>
+        </div>
+        <div class="bubble-row">
+          <div class="avatar av-a">A</div>
+          <div><div class="bubble"><span class="en">I'm from Kolkata. I work at a computer centre. What about you?</span><span class="bn">আমি কলকাতা থেকে। আমি একটি কম্পিউটার সেন্টারে কাজ করি। তুমি?</span></div></div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar av-b">B</div>
+          <div><div class="bubble"><span class="en">I'm a student. I'm studying in Class 12.</span><span class="bn">আমি একজন ছাত্রী। আমি দ্বাদশ শ্রেণিতে পড়ছি।</span></div></div>
+        </div>
+        <div class="bubble-row">
+          <div class="avatar av-a">A</div>
+          <div><div class="bubble"><span class="en">That's great! It was lovely meeting you.</span><span class="bn">চমৎকার! তোমার সাথে পরিচিত হয়ে খুব ভালো লাগলো।</span></div></div>
+        </div>
+        <div class="vocab-box">
+          <div class="vocab-title">📌 Key Phrases</div>
+          <div class="vocab-list">
+            <span class="vocab-pill">Nice to meet you</span>
+            <span class="vocab-pill">Where are you from?</span>
+            <span class="vocab-pill">What do you do?</span>
+            <span class="vocab-pill">I'm a student</span>
+            <span class="vocab-pill">Lovely meeting you</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="conv-card">
+      <div class="conv-header">
+        <div class="conv-num" style="background:#fce7f3;color:#9d174d">2</div>
+        <div><div class="conv-topic">Talking about family — পরিবার সম্পর্কে কথা</div></div>
+      </div>
+      <div class="conv-body">
+        <div class="bubble-row">
+          <div class="avatar av-a">A</div>
+          <div><div class="bubble"><span class="en">Do you live with your family?</span><span class="bn">তুমি কি পরিবারের সাথে থাকো?</span></div></div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar av-b">B</div>
+          <div><div class="bubble"><span class="en">Yes, I live with my parents and one younger sister.</span><span class="bn">হ্যাঁ, আমি আমার বাবা-মা ও এক ছোট বোনের সাথে থাকি।</span></div></div>
+        </div>
+        <div class="bubble-row">
+          <div class="avatar av-a">A</div>
+          <div><div class="bubble"><span class="en">That's nice! What does your father do?</span><span class="bn">চমৎকার! তোমার বাবা কী করেন?</span></div></div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar av-b">B</div>
+          <div><div class="bubble"><span class="en">He is a teacher in a government school.</span><span class="bn">তিনি একটি সরকারি স্কুলে শিক্ষক।</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SCHOOL ══ -->
+  <div id="school" class="panel">
+    <div class="topic-label">🏫 At School / Class — স্কুল ও ক্লাসে</div>
+
+    <div class="conv-card">
+      <div class="conv-header">
+        <div class="conv-num" style="background:#ccfbf1;color:#0f766e">1</div>
+        <div><div class="conv-topic">Asking the teacher — শিক্ষককে প্রশ্ন করা</div></div>
+      </div>
+      <div class="conv-body">
+        <div class="bubble-row">
+          <div class="avatar av-a">S</div>
+          <div><div class="speaker-name">Student</div>
+          <div class="bubble"><span class="en">Excuse me, sir. May I ask a question?</span><span class="bn">ক্ষমা করবেন স্যার। আমি কি একটি প্রশ্ন করতে পারি?</span></div></div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar av-b">T</div>
+          <div><div class="speaker-name">Teacher</div>
+          <div class="bubble"><span class="en">Of course! Go ahead.</span><span class="bn">অবশ্যই! বলো।</span></div></div>
+        </div>
+        <div class="bubble-row">
+          <div class="avatar av-a">S</div>
+          <div><div class="bubble"><span class="en">I didn't understand the last part. Could you explain it again, please?</span><span class="bn">আমি শেষ অংশটি বুঝিনি। আপনি কি আবার বুঝিয়ে দিতে পারবেন?</span></div></div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar av-b">T</div>
+          <div><div class="bubble"><span class="en">Sure! Let me explain it once more. Pay attention.</span><span class="bn">অবশ্যই! আমি আরও একবার বুঝিয়ে দিচ্ছি। মনোযোগ দাও।</span></div></div>
+        </div>
+        <div class="bubble-row">
+          <div class="avatar av-a">S</div>
+          <div><div class="bubble"><span class="en">Thank you so much, sir. Now I understand.</span><span class="bn">অনেক ধন্যবাদ স্যার। এখন বুঝতে পেরেছি।</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="conv-card">
+      <div class="conv-header">
+        <div class="conv-num" style="background:#fef3c7;color:#92400e">2</div>
+        <div><div class="conv-topic">Asking for notes — নোট চাওয়া</div><div class="conv-sub">দুই সহপাঠীর মধ্যে</div></div>
+      </div>
+      <div class="conv-body">
+        <div class="bubble-row">
+          <div class="avatar av-a">A</div>
+          <div><div class="bubble"><span class="en">Hey! I was absent yesterday. Can I borrow your notes?</span><span class="bn">হ্যালো! আমি গতকাল অনুপস্থিত ছিলাম। আমি কি তোমার নোট ধার নিতে পারি?</span></div></div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar av-b">B</div>
+          <div><div class="bubble"><span class="en">Of course! I'll give it to you after class.</span><span class="bn">অবশ্যই! ক্লাসের পরে দেব।</span></div></div>
+        </div>
+        <div class="bubble-row">
+          <div class="avatar av-a">A</div>
+          <div><div class="bubble"><span class="en">That's very kind of you. Thank you!</span><span class="bn">তুমি খুব ভালো। ধন্যবাদ!</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SHOPPING ══ -->
+  <div id="shop" class="panel">
+    <div class="topic-label">🛍️ Shopping — কেনাকাটা</div>
+
+    <div class="conv-card">
+      <div class="conv-header">
+        <div class="conv-num" style="background:#dbeafe;color:#1e40af">1</div>
+        <div><div class="conv-topic">At a clothing shop — কাপড়ের দোকানে</div></div>
+      </div>
+      <div class="conv-body">
+        <div class="bubble-row right">
+          <div class="avatar av-b">S</div>
+          <div><div class="speaker-name">Shopkeeper</div>
+          <div class="bubble"><span class="en">Good afternoon! How can I help you?</span><span class="bn">শুভ অপরাহ্ণ! আমি কীভাবে সাহায্য করতে পারি?</span></div></div>
+        </div>
+        <div class="bubble-row">
+          <div class="avatar av-a">C</div>
+          <div><div class="speaker-name">Customer</div>
+          <div class="bubble"><span class="en">I'm looking for a cotton shirt. Do you have any?</span><span class="bn">আমি একটি সুতির শার্ট খুঁজছি। আপনার কাছে আছে কি?</span></div></div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar av-b">S</div>
+          <div><div class="bubble"><span class="en">Yes, we have many designs. What size do you need?</span><span class="bn">হ্যাঁ, আমাদের অনেক ডিজাইন আছে। আপনার কোন সাইজ দরকার?</span></div></div>
+        </div>
+        <div class="bubble-row">
+          <div class="avatar av-a">C</div>
+          <div><div class="bubble"><span class="en">I need a medium size. What is the price?</span><span class="bn">আমার মিডিয়াম সাইজ দরকার। দাম কত?</span></div></div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar av-b">S</div>
+          <div><div class="bubble"><span class="en">This one is ₹450. Shall I pack it for you?</span><span class="bn">এটি ₹৪৫০। আমি কি এটি প্যাক করে দেব?</span></div></div>
+        </div>
+        <div class="bubble-row">
+          <div class="avatar av-a">C</div>
+          <div><div class="bubble"><span class="en">Can you give me a small discount?</span><span class="bn">একটু ছাড় দিতে পারবেন কি?</span></div></div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar av-b">S</div>
+          <div><div class="bubble"><span class="en">Okay! I'll make it ₹400 for you.</span><span class="bn">ঠিক আছে! আমি আপনার জন্য ₹৪০০ করে দিচ্ছি।</span></div></div>
+        </div>
+        <div class="vocab-box">
+          <div class="vocab-title">📌 Key Phrases</div>
+          <div class="vocab-list">
+            <span class="vocab-pill">How much does it cost?</span>
+            <span class="vocab-pill">Can I get a discount?</span>
+            <span class="vocab-pill">Do you have this in another colour?</span>
+            <span class="vocab-pill">I'll take it</span>
+            <span class="vocab-pill">Do you accept card?</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ DOCTOR ══ -->
+  <div id="doctor" class="panel">
+    <div class="topic-label">🏥 At the Doctor — ডাক্তারের কাছে</div>
+
+    <div class="conv-card">
+      <div class="conv-header">
+        <div class="conv-num" style="background:#fee2e2;color:#991b1b">1</div>
+        <div><div class="conv-topic">Visiting the doctor — ডাক্তার দেখানো</div></div>
+      </div>
+      <div class="conv-body">
+        <div class="bubble-row right">
+          <div class="avatar av-b">D</div>
+          <div><div class="speaker-name">Doctor</div>
+          <div class="bubble"><span class="en">Good morning! Please sit down. What seems to be the problem?</span><span class="bn">শুভ সকাল! বসুন। কী সমস্যা হচ্ছে?</span></div></div>
+        </div>
+        <div class="bubble-row">
+          <div class="avatar av-a">P</div>
+          <div><div class="speaker-name">Patient</div>
+          <div class="bubble"><span class="en">Doctor, I have a fever and a bad headache since yesterday.</span><span class="bn">ডাক্তার, গতকাল থেকে আমার জ্বর এবং মাথাব্যথা হচ্ছে।</span></div></div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar av-b">D</div>
+          <div><div class="bubble"><span class="en">How high is the fever? Have you checked your temperature?</span><span class="bn">জ্বর কতটা? তাপমাত্রা পরিমাপ করেছেন?</span></div></div>
+        </div>
+        <div class="bubble-row">
+          <div class="avatar av-a">P</div>
+          <div><div class="bubble"><span class="en">Yes, it was 102°F this morning. I also have a sore throat.</span><span class="bn">হ্যাঁ, আজ সকালে ১০২°F ছিল। গলাও ব্যথা করছে।</span></div></div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar av-b">D</div>
+          <div><div class="bubble"><span class="en">Let me check. Open your mouth and say "Ahh".</span><span class="bn">দেখছি। মুখ খুলুন এবং "আহহ" বলুন।</span></div></div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar av-b">D</div>
+          <div><div class="bubble"><span class="en">You have a throat infection. I'm prescribing some medicine. Take rest and drink plenty of water.</span><span class="bn">আপনার গলায় ইনফেকশন হয়েছে। আমি কিছু ওষুধ লিখে দিচ্ছি। বিশ্রাম নিন এবং প্রচুর পানি পান করুন।</span></div></div>
+        </div>
+        <div class="bubble-row">
+          <div class="avatar av-a">P</div>
+          <div><div class="bubble"><span class="en">Thank you, doctor. When should I come back?</span><span class="bn">ধন্যবাদ ডাক্তার। কবে আবার আসব?</span></div></div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar av-b">D</div>
+          <div><div class="bubble"><span class="en">Come after 3 days. If it gets worse, come immediately.</span><span class="bn">৩ দিন পরে আসুন। যদি বাড়ে, তাহলে এখনই আসুন।</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PHONE CALL ══ -->
+  <div id="phone" class="panel">
+    <div class="topic-label">📱 Phone Conversation — ফোনে কথোপকথন</div>
+
+    <div class="conv-card">
+      <div class="conv-header">
+        <div class="conv-num" style="background:#ede9fe;color:#5b21b6">1</div>
+        <div><div class="conv-topic">Making a phone call — ফোন করা</div></div>
+      </div>
+      <div class="conv-body">
+        <div class="bubble-row">
+          <div class="avatar av-a">A</div>
+          <div><div class="bubble"><span class="en">Hello! May I speak to Mr. Sharma, please?</span><span class="bn">হ্যালো! আমি কি মিস্টার শর্মার সাথে কথা বলতে পারি?</span></div></div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar av-b">B</div>
+          <div><div class="bubble"><span class="en">Speaking! Who is this, please?</span><span class="bn">বলছি! আপনি কে বলছেন?</span></div></div>
+        </div>
+        <div class="bubble-row">
+          <div class="avatar av-a">A</div>
+          <div><div class="bubble"><span class="en">This is Ravi calling from Super Success Centre. Is this a good time to talk?</span><span class="bn">আমি সুপার সাকসেস সেন্টার থেকে রবি বলছি। এখন কি কথা বলার সুবিধা আছে?</span></div></div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar av-b">B</div>
+          <div><div class="bubble"><span class="en">Yes, go ahead. What can I do for you?</span><span class="bn">হ্যাঁ, বলুন। আপনার জন্য কী করতে পারি?</span></div></div>
+        </div>
+        <div class="bubble-row">
+          <div class="avatar av-a">A</div>
+          <div><div class="bubble"><span class="en">I wanted to confirm your appointment for tomorrow at 10 AM.</span><span class="bn">আমি আগামীকাল সকাল ১০টায় আপনার অ্যাপয়েন্টমেন্ট নিশ্চিত করতে চাইছিলাম।</span></div></div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar av-b">B</div>
+          <div><div class="bubble"><span class="en">Yes, confirmed. I'll be there on time.</span><span class="bn">হ্যাঁ, নিশ্চিত। আমি সময়মতো থাকব।</span></div></div>
+        </div>
+        <div class="vocab-box">
+          <div class="vocab-title">📌 Key Phrases</div>
+          <div class="vocab-list">
+            <span class="vocab-pill">May I speak to...?</span>
+            <span class="vocab-pill">Who is calling?</span>
+            <span class="vocab-pill">Hold on please</span>
+            <span class="vocab-pill">Can I take a message?</span>
+            <span class="vocab-pill">I'll call back later</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ TRAVEL ══ -->
+  <div id="travel" class="panel">
+    <div class="topic-label">🚌 Travel & Transport — যাতায়াত</div>
+
+    <div class="conv-card">
+      <div class="conv-header">
+        <div class="conv-num" style="background:#ccfbf1;color:#0f766e">1</div>
+        <div><div class="conv-topic">Asking for directions — পথ জিজ্ঞাসা</div></div>
+      </div>
+      <div class="conv-body">
+        <div class="bubble-row">
+          <div class="avatar av-a">A</div>
+          <div><div class="bubble"><span class="en">Excuse me! Could you tell me the way to the railway station?</span><span class="bn">ক্ষমা করবেন! রেলওয়ে স্টেশনের পথটা বলতে পারবেন?</span></div></div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar av-b">B</div>
+          <div><div class="bubble"><span class="en">Sure! Go straight, then turn left at the traffic light.</span><span class="bn">অবশ্যই! সোজা যান, তারপর ট্র্যাফিক লাইটে বাঁ দিকে ঘুরুন।</span></div></div>
+        </div>
+        <div class="bubble-row">
+          <div class="avatar av-a">A</div>
+          <div><div class="bubble"><span class="en">How far is it from here?</span><span class="bn">এখান থেকে কতটা দূর?</span></div></div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar av-b">B</div>
+          <div><div class="bubble"><span class="en">It's about 10 minutes walking. You can't miss it.</span><span class="bn">হেঁটে প্রায় ১০ মিনিট। আপনি সহজেই খুঁজে পাবেন।</span></div></div>
+        </div>
+        <div class="bubble-row">
+          <div class="avatar av-a">A</div>
+          <div><div class="bubble"><span class="en">Thank you so much!</span><span class="bn">অনেক ধন্যবাদ!</span></div></div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar av-b">B</div>
+          <div><div class="bubble"><span class="en">You're welcome! Have a safe journey.</span><span class="bn">স্বাগতম! নিরাপদে যান।</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="conv-card">
+      <div class="conv-header">
+        <div class="conv-num" style="background:#fef3c7;color:#92400e">2</div>
+        <div><div class="conv-topic">Booking a train ticket — ট্রেনের টিকিট কাটা</div></div>
+      </div>
+      <div class="conv-body">
+        <div class="bubble-row">
+          <div class="avatar av-a">P</div>
+          <div><div class="speaker-name">Passenger</div>
+          <div class="bubble"><span class="en">One ticket to Howrah, please.</span><span class="bn">হাওড়া পর্যন্ত একটি টিকিট দিন।</span></div></div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar av-b">C</div>
+          <div><div class="speaker-name">Clerk</div>
+          <div class="bubble"><span class="en">Which class? General or Sleeper?</span><span class="bn">কোন শ্রেণি? জেনারেল নাকি স্লিপার?</span></div></div>
+        </div>
+        <div class="bubble-row">
+          <div class="avatar av-a">P</div>
+          <div><div class="bubble"><span class="en">Sleeper class, please. What time is the next train?</span><span class="bn">স্লিপার ক্লাস। পরবর্তী ট্রেন কয়টায়?</span></div></div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar av-b">C</div>
+          <div><div class="bubble"><span class="en">The next train is at 3:45 PM. Platform number 4.</span><span class="bn">পরবর্তী ট্রেন বিকাল ৩:৪৫-এ। প্ল্যাটফর্ম নম্বর ৪।</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ OFFICE ══ -->
+  <div id="office" class="panel">
+    <div class="topic-label">💼 At the Office — অফিসে</div>
+
+    <div class="conv-card">
+      <div class="conv-header">
+        <div class="conv-num" style="background:#dbeafe;color:#1e40af">1</div>
+        <div><div class="conv-topic">Job Interview — চাকরির সাক্ষাৎকার</div></div>
+      </div>
+      <div class="conv-body">
+        <div class="bubble-row right">
+          <div class="avatar av-b">I</div>
+          <div><div class="speaker-name">Interviewer</div>
+          <div class="bubble"><span class="en">Please come in and have a seat. Can you tell me about yourself?</span><span class="bn">ভেতরে আসুন এবং বসুন। আপনি কি নিজের সম্পর্কে বলবেন?</span></div></div>
+        </div>
+        <div class="bubble-row">
+          <div class="avatar av-a">C</div>
+          <div><div class="speaker-name">Candidate</div>
+          <div class="bubble"><span class="en">Thank you! My name is Amit Das. I have completed my graduation in Commerce. I have two years of experience in data entry.</span><span class="bn">ধন্যবাদ! আমার নাম অমিত দাস। আমি কমার্সে স্নাতক সম্পন্ন করেছি। ডাটা এন্ট্রিতে আমার দুই বছরের অভিজ্ঞতা আছে।</span></div></div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar av-b">I</div>
+          <div><div class="bubble"><span class="en">Why do you want to join our company?</span><span class="bn">আপনি কেন আমাদের কোম্পানিতে যোগ দিতে চান?</span></div></div>
+        </div>
+        <div class="bubble-row">
+          <div class="avatar av-a">C</div>
+          <div><div class="bubble"><span class="en">Your company has a great reputation. I want to grow my career here and contribute to the team.</span><span class="bn">আপনাদের কোম্পানির খ্যাতি খুব ভালো। আমি এখানে আমার ক্যারিয়ার গড়তে এবং দলে অবদান রাখতে চাই।</span></div></div>
+        </div>
+        <div class="bubble-row right">
+          <div class="avatar av-b">I</div>
+          <div><div class="bubble"><span class="en">Good. We will let you know within a week. Thank you for coming.</span><span class="bn">ভালো। আমরা এক সপ্তাহের মধ্যে জানাব। আসার জন্য ধন্যবাদ।</span></div></div>
+        </div>
+        <div class="vocab-box">
+          <div class="vocab-title">📌 Key Phrases</div>
+          <div class="vocab-list">
+            <span class="vocab-pill">Tell me about yourself</span>
+            <span class="vocab-pill">What are your strengths?</span>
+            <span class="vocab-pill">I am a quick learner</span>
+            <span class="vocab-pill">I work well in a team</span>
+            <span class="vocab-pill">Thank you for the opportunity</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ DAILY PHRASES ══ -->
+  <div id="phrases" class="panel">
+    <div class="topic-label">✨ Most Common Daily Phrases — সবচেয়ে বেশি ব্যবহৃত বাক্য</div>
+    <div class="phrase-grid">
+      <div class="phrase-card"><div class="phrase-en">Could you please repeat that?</div><div class="phrase-bn">আপনি কি আবার বলবেন?</div><div class="phrase-use">যখন বুঝতে পারেননি</div></div>
+      <div class="phrase-card"><div class="phrase-en">I beg your pardon?</div><div class="phrase-bn">দুঃখিত, কী বললেন?</div><div class="phrase-use">আবার শুনতে চাইলে</div></div>
+      <div class="phrase-card"><div class="phrase-en">That's a good idea!</div><div class="phrase-bn">এটা একটা ভালো ধারণা!</div><div class="phrase-use">সম্মতি জানাতে</div></div>
+      <div class="phrase-card"><div class="phrase-en">I'm sorry to hear that.</div><div class="phrase-bn">শুনে দুঃখ লাগলো।</div><div class="phrase-use">সহানুভূতি জানাতে</div></div>
+      <div class="phrase-card"><div class="phrase-en">Never mind!</div><div class="phrase-bn">কিছু মনে করো না!</div><div class="phrase-use">সান্ত্বনা দিতে</div></div>
+      <div class="phrase-card"><div class="phrase-en">I'll be right back.</div><div class="phrase-bn">আমি এখনই ফিরে আসছি।</div><div class="phrase-use">সাময়িক বিদায়ে</div></div>
+      <div class="phrase-card"><div class="phrase-en">Take care of yourself.</div><div class="phrase-bn">নিজের যত্ন নিও।</div><div class="phrase-use">বিদায়ের সময়</div></div>
+      <div class="phrase-card"><div class="phrase-en">What do you think?</div><div class="phrase-bn">তুমি কী মনে করো?</div><div class="phrase-use">মতামত জানতে</div></div>
+      <div class="phrase-card"><div class="phrase-en">I agree with you.</div><div class="phrase-bn">আমি তোমার সাথে একমত।</div><div class="phrase-use">মত প্রকাশে</div></div>
+      <div class="phrase-card"><div class="phrase-en">Let me think about it.</div><div class="phrase-bn">আমাকে একটু ভাবতে দাও।</div><div class="phrase-use">সময় নিতে</div></div>
+      <div class="phrase-card"><div class="phrase-en">Can you help me, please?</div><div class="phrase-bn">আপনি কি আমাকে সাহায্য করতে পারবেন?</div><div class="phrase-use">সাহায্য চাইতে</div></div>
+      <div class="phrase-card"><div class="phrase-en">It was nice talking to you.</div><div class="phrase-bn">তোমার সাথে কথা বলে ভালো লাগলো।</div><div class="phrase-use">বিদায়ের আগে</div></div>
+      <div class="phrase-card"><div class="phrase-en">Keep up the good work!</div><div class="phrase-bn">এভাবেই ভালো কাজ চালিয়ে যাও!</div><div class="phrase-use">উৎসাহ দিতে</div></div>
+      <div class="phrase-card"><div class="phrase-en">I'll get back to you.</div><div class="phrase-bn">আমি তোমার সাথে পরে যোগাযোগ করব।</div><div class="phrase-use">পরে জানাতে</div></div>
+      <div class="phrase-card"><div class="phrase-en">Congratulations!</div><div class="phrase-bn">অভিনন্দন!</div><div class="phrase-use">সাফল্যে</div></div>
+      <div class="phrase-card"><div class="phrase-en">Better luck next time!</div><div class="phrase-bn">আগামীবার আরও ভালো হবে!</div><div class="phrase-use">ব্যর্থতায় সান্ত্বনা</div></div>
+      <div class="phrase-card"><div class="phrase-en">You're welcome!</div><div class="phrase-bn">স্বাগতম / কোনো ব্যাপার না!</div><div class="phrase-use">ধন্যবাদের উত্তরে</div></div>
+      <div class="phrase-card"><div class="phrase-en">As soon as possible.</div><div class="phrase-bn">যত তাড়াতাড়ি সম্ভব।</div><div class="phrase-use">জরুরি অনুরোধে</div></div>
+    </div>
+  </div>
+
+</main>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <strong>Super Success Computer Education Center</strong><br>
+  22/1 Bipin Paul Road, Nimta Shyamaprasad Nagar, Kolkata – 700049, West Bengal<br>
+  <div class="f-phones">📞 8017247298 &nbsp;|&nbsp; 📞 9874152080</div>
+  <div style="margin-top:8px;font-size:11px;opacity:.6">Spoken English Course Material &nbsp;|&nbsp; সমস্ত অধিকার সংরক্ষিত</div>
+</footer>
+
+<script>
+function show(id, btn) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.cat-tab').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Since vs For Challenge - SSCEC</title>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *{ margin:0; padding:0; box-sizing:border-box; }
+    body{
+      font-family:'Hind Siliguri', sans-serif;
+      background: #f1f5f9;
+      color:#1e293b;
+      padding:20px;
+    }
+    .container{ max-width:1000px; margin:auto; }
+    .header-box{
+      background: linear-gradient(135deg, #0369a1, #0ea5e9);
+      color: white;
+      padding: 35px;
+      border-radius: 24px;
+      text-align: center;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 30px rgba(14, 165, 233, 0.2);
+    }
+    .center-name { font-size: 34px; font-weight: 700; margin-bottom: 5px; }
+    .address { font-size: 15px; opacity: 0.9; margin-bottom: 15px; }
+    .title { font-size: 26px; color: #facc15; font-weight: 600; }
+    
+    .rule-box {
+      background: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      margin-bottom: 30px;
+      border-left: 8px solid #facc15;
+      line-height: 1.8;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 22px;
+      margin-bottom: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: 0.3s;
+    }
+    .card:hover { transform: scale(1.01); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+    .question-text { font-size: 19px; font-weight: 500; flex-grow: 1; }
+    .question-text span { color: #0ea5e9; font-weight: 700; margin-right: 10px; }
+    
+    .btn {
+      background: #0ea5e9;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+      font-family: 'Poppins', sans-serif;
+      margin-left: 15px;
+    }
+    .btn:hover { background: #0284c7; }
+
+    .ans-popup {
+      display: none;
+      font-weight: 700;
+      color: #059669;
+      background: #ecfdf5;
+      padding: 5px 12px;
+      border-radius: 6px;
+      margin-left: 10px;
+    }
+
+    .footer { text-align: center; padding: 30px; color: #64748b; font-size: 15px; }
+    
+    @media (max-width: 600px) {
+      .card { flex-direction: column; text-align: center; }
+      .btn { margin-top: 15px; width: 100%; }
+      .ans-popup { margin-top: 10px; display: block; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header-box">
+    <div class="center-name">Super Success Computer Education Center</div>
+    <div class="address">22/1 Bipin Paul Road, Nimta Shyamaprasad Nagar, Kolkata - 700049</div>
+    <div class="title">50 Uses of 'Since' and 'For'</div>
+    <p style="margin-top:10px;">Trainer: Bipul Sarkar</p>
+  </div>
+
+  <div class="rule-box">
+    <strong>💡 মনে রাখার কৌশল:</strong> <br>
+    ✅ <strong>Since:</strong> নির্দিষ্ট সময় বা শুরুর সময় বোঝাতে (যেমন: Monday, 2010, Morning, 5 PM)। <br>
+    ✅ <strong>For:</strong> সময়ের পরিমাণ বা ব্যাপ্তি বোঝাতে (যেমন: 2 hours, 5 days, 10 years, a long time)।
+  </div>
+
+  <div id="quiz-container"></div>
+
+  <div class="footer">
+    &copy; 2026 <strong>SSCEC</strong> | Your Gateway to Professional English & IT Skills
+  </div>
+</div>
+
+<script>
+const data = [
+  { q: "I have been waiting ___ 2 o'clock.", a: "Since" },
+  { q: "She has been sleeping ___ 3 hours.", a: "For" },
+  { q: "They have been living here ___ 2015.", a: "Since" },
+  { q: "It has been raining ___ morning.", a: "Since" },
+  { q: "We have been playing ___ a long time.", a: "For" },
+  { q: "He has been ill ___ last Sunday.", a: "Since" },
+  { q: "I have been working here ___ six months.", a: "For" },
+  { q: "She has been cooking ___ 10 AM.", a: "Since" },
+  { q: "They have been traveling ___ two days.", a: "For" },
+  { q: "He has been crying ___ an hour.", a: "For" },
+  { q: "We have been studying ___ evening.", a: "Since" },
+  { q: "My father has been in this job ___ 20 years.", a: "For" },
+  { q: "I haven't seen him ___ last month.", a: "Since" },
+  { q: "She has been learning music ___ childhood.", a: "Since" },
+  { q: "They have been practicing ___ ages.", a: "For" },
+  { q: "It has been snowing ___ yesterday.", a: "Since" },
+  { q: "I have been reading this book ___ 3 days.", a: "For" },
+  { q: "We have been waiting ___ noon.", a: "Since" },
+  { q: "He has been teaching ___ 5 years.", a: "For" },
+  { q: "She has been dancing ___ 4 PM.", a: "Since" },
+  { q: "They have been waiting ___ 10 minutes.", a: "For" },
+  { q: "I have been here ___ January.", a: "Since" },
+  { q: "He has been playing football ___ his youth.", a: "Since" },
+  { q: "She has been away ___ a week.", a: "For" },
+  { q: "We haven't met ___ the last party.", a: "Since" },
+  { q: "They have been working ___ 8 hours.", a: "For" },
+  { q: "It has been hot ___ Monday.", a: "Since" },
+  { q: "I have been learning English ___ two years.", a: "For" },
+  { q: "He has been driving ___ 5 o'clock.", a: "Since" },
+  { q: "She has been crying ___ a long time.", a: "For" },
+  { q: "They have been building the house ___ 2022.", a: "Since" },
+  { q: "We have been friends ___ many years.", a: "For" },
+  { q: "I haven't eaten anything ___ morning.", a: "Since" },
+  { q: "He has been shouting ___ ten minutes.", a: "For" },
+  { q: "She has been knitting ___ yesterday.", a: "Since" },
+  { q: "They have been talking ___ an hour.", a: "For" },
+  { q: "I have been writing ___ 9 AM.", a: "Since" },
+  { q: "We have been walking ___ two miles.", a: "For" },
+  { q: "He has been silent ___ he arrived.", a: "Since" },
+  { q: "She has been working ___ five days.", a: "For" },
+  { q: "They have been singing ___ evening.", a: "Since" },
+  { q: "I have been looking for my keys ___ 15 minutes.", a: "For" },
+  { q: "It has been dry ___ three weeks.", a: "For" },
+  { q: "He has been learning computer ___ July.", a: "Since" },
+  { q: "She has been cooking ___ a short time.", a: "For" },
+  { q: "We have been living in Kolkata ___ 1990.", a: "Since" },
+  { q: "They have been playing ___ 4 hours.", a: "For" },
+  { q: "I have been waiting for the bus ___ 10:30 AM.", a: "Since" },
+  { q: "He has been suffering from fever ___ 3 days.", a: "For" },
+  { q: "She has been practicing yoga ___ last year.", a: "Since" }
+];
+
+const container = document.getElementById('quiz-container');
+
+data.forEach((item, index) => {
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.innerHTML = `
+    <div class="question-text"><span>${index + 1}.</span> ${item.q}</div>
+    <span class="ans-popup" id="ans${index}">${item.a}</span>
+    <button class="btn" id="btn${index}" onclick="showAns(${index})">Answer</button>
+  `;
+  container.appendChild(card);
+});
+
+function showAns(id) {
+  const ans = document.getElementById('ans' + id);
+  const btn = document.getElementById('btn' + id);
+  ans.style.display = "inline-block";
+  btn.style.display = "none";
+}
+</script>
+
+</body>
+</html>

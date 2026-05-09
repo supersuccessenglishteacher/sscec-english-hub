@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Error Correction Challenge - SSCEC</title>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *{ margin:0; padding:0; box-sizing:border-box; }
+    body{
+      font-family:'Hind Siliguri', sans-serif;
+      background: #f8fafc;
+      color:#334155;
+      padding:20px;
+    }
+    .container{ max-width:1000px; margin:auto; }
+    .header-box{
+      background: linear-gradient(135deg, #1e3a8a, #2563eb);
+      color: white;
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.2);
+    }
+    .center-name { font-size: 32px; font-weight: 700; margin-bottom: 5px; }
+    .address { font-size: 14px; opacity: 0.9; margin-bottom: 15px; }
+    .title { font-size: 24px; color: #facc15; font-weight: 600; }
+    .card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 15px;
+      transition: 0.3s;
+    }
+    .card:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+    .error-text { font-size: 18px; color: #ef4444; font-weight: 600; margin-bottom: 12px; }
+    .error-text span { color: #64748b; font-size: 14px; font-weight: 400; }
+    .btn {
+      background: #10b981;
+      color: white;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      font-family: 'Poppins', sans-serif;
+    }
+    .btn:hover { background: #059669; }
+    .correction {
+      display: none;
+      margin-top: 15px;
+      padding: 12px;
+      background: #f0fdf4;
+      border-left: 5px solid #10b981;
+      color: #166534;
+      font-weight: 700;
+      font-size: 18px;
+    }
+    .footer { text-align: center; padding: 20px; color: #64748b; font-size: 14px; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header-box">
+    <div class="center-name">Super Success Computer Education Center</div>
+    <div class="address">22/1 Bipin Paul Road, Nimta Shyamaprasad Nagar, Kolkata - 700049</div>
+    <div class="title">50 Error Correction Challenge (Present Tense)</div>
+    <p style="margin-top:10px;">Trainer: Bipul Sarkar</p>
+  </div>
+
+  <div id="quiz-container"></div>
+
+  <div class="footer">
+    &copy; 2026 SSCEC | Quality Education for Future Success
+  </div>
+</div>
+
+<script>
+const data = [
+  { e: "He go to school every day.", c: "He goes to school every day." },
+  { e: "I am play football now.", c: "I am playing football now." },
+  { e: "She have finished her work.", c: "She has finished her work." },
+  { e: "They has been waiting for an hour.", c: "They have been waiting for an hour." },
+  { e: "Do he like tea?", c: "Does he like tea?" },
+  { e: "The sun rise in the east.", c: "The sun rises in the east." },
+  { e: "We are watch a movie.", c: "We are watching a movie." },
+  { e: "I has seen the Taj Mahal.", c: "I have seen the Taj Mahal." },
+  { e: "It have been raining since morning.", c: "It has been raining since morning." },
+  { e: "She don't know the answer.", c: "She doesn't know the answer." },
+  { e: "They is playing in the park.", c: "They are playing in the park." },
+  { e: "He have just arrived.", c: "He has just arrived." },
+  { e: "I am knowing him very well.", c: "I know him very well. (Know is a stative verb)" },
+  { e: "Birds flies in the sky.", c: "Birds fly in the sky." },
+  { e: "She is cook food now.", c: "She is cooking food now." },
+  { e: "We has won the match.", c: "We have won the match." },
+  { e: "He has been sleep for 2 hours.", c: "He has been sleeping for 2 hours." },
+  { e: "Does they play cricket?", c: "Do they play cricket?" },
+  { e: "I not like coffee.", c: "I do not like coffee." },
+  { e: "The baby are crying.", c: "The baby is crying." },
+  { e: "You has completed the task.", c: "You have completed the task." },
+  { e: "She have been living here for years.", c: "She has been living here for years." },
+  { e: "It rain in winter.", c: "It rains in winter." },
+  { e: "We am learning English.", c: "We are learning English." },
+  { e: "Has you eaten lunch?", c: "Have you eaten lunch?" },
+  { e: "They has gone to Delhi.", c: "They have gone to Delhi." },
+  { e: "He is read a book.", c: "He is reading a book." },
+  { e: "I have been work since 9 AM.", c: "I have been working since 9 AM." },
+  { e: "She sings beautiful.", c: "She sings beautifully." },
+  { e: "Do she speaks English?", c: "Does she speak English?" },
+  { e: "They does not play here.", c: "They do not play here." },
+  { e: "I has been waiting for you.", c: "I have been waiting for you." },
+  { e: "The water are cold.", c: "The water is cold." },
+  { e: "He have a new car.", c: "He has a new car." },
+  { e: "We has been studying hard.", c: "We have been studying hard." },
+  { e: "Is you coming tonight?", c: "Are you coming tonight?" },
+  { e: "She has just finish her lunch.", c: "She has just finished her lunch." },
+  { e: "I am having a large house.", c: "I have a large house." },
+  { e: "The boys is running.", c: "The boys are running." },
+  { e: "He don't plays football.", c: "He doesn't play football." },
+  { e: "We have saw the movie.", c: "We have seen the movie." },
+  { e: "It has been rain since noon.", c: "It has been raining since noon." },
+  { e: "Does he likes mangoes?", c: "Does he like mangoes?" },
+  { e: "They are watch TV now.", c: "They are watching TV now." },
+  { e: "I has lived here for 10 years.", c: "I have lived here for 10 years." },
+  { e: "She is been working here.", c: "She has been working here." },
+  { e: "The teacher explain the lesson.", c: "The teacher explains the lesson." },
+  { e: "Are she dancing?", c: "Is she dancing?" },
+  { e: "We has not reached yet.", c: "We have not reached yet." },
+  { e: "He have been crying since 2 PM.", c: "He has been crying since 2 PM." }
+];
+
+const container = document.getElementById('quiz-container');
+
+data.forEach((item, index) => {
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.innerHTML = `
+    <div class="error-text"><span>Incorrect:</span> ${index + 1}. ${item.e}</div>
+    <button class="btn" onclick="toggleAns(${index})">Show Correction</button>
+    <div class="correction" id="ans${index}">✅ Correct: ${item.c}</div>
+  `;
+  container.appendChild(card);
+});
+
+function toggleAns(id) {
+  const el = document.getElementById('ans' + id);
+  el.style.display = (el.style.display === 'block') ? 'none' : 'block';
+}
+</script>
+
+</body>
+</html>

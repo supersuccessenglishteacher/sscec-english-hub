@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Present Tense Quiz - SSCEC</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f1f5f9;
+            margin: 0;
+            padding: 0;
+            color: #1e293b;
+        }
+        header {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: #f8fafc;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 5px solid #3b82f6;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.2rem;
+            letter-spacing: 1px;
+        }
+        .contact-info {
+            font-size: 11pt;
+            margin-top: 10px;
+            color: #94a3b8;
+        }
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .instruction {
+            background-color: #eff6ff;
+            border-left: 5px solid #3b82f6;
+            padding: 15px;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+        .quiz-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-bottom: 1px solid #e2e8f0;
+            transition: background 0.3s;
+        }
+        .quiz-item:hover {
+            background-color: #f8fafc;
+        }
+        .question {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+        .blank-space {
+            font-weight: bold;
+            color: #3b82f6;
+            border-bottom: 2px dashed #94a3b8;
+            padding: 0 10px;
+        }
+        .answer-btn {
+            background-color: #3b82f6;
+            color: white;
+            border: none;
+            padding: 6px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-top: 5px;
+            transition: background 0.3s;
+        }
+        .answer-btn:hover {
+            background-color: #2563eb;
+        }
+        .answer-text {
+            display: none;
+            margin-top: 8px;
+            color: #059669;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #0f172a;
+            color: #f8fafc;
+            margin-top: 50px;
+        }
+        .tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            background: #e2e8f0;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-bottom: 5px;
+            color: #475569;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Super Success Computer Education Center</h1>
+    <div class="contact-info">
+        22/1 Bipin Paul Road, Nimta Shyamaprasad Nagar, Kolkata - 700049 <br>
+        Mobile: 8017247298 | 9874152080 | English Trainer: Bipul Sarkar
+    </div>
+</header>
+
+<div class="container">
+    <div class="instruction">
+        📝 <strong>নির্দেশনা:</strong> নিচের শূন্যস্থানগুলো Present Tense-এর সঠিক রূপ দিয়ে পূরণ করো। "উত্তর দেখুন" বাটনে ক্লিক করলে সঠিক উত্তরটি দেখা যাবে।
+    </div>
+
+    <div id="quiz-container">
+        <!-- Questions start here -->
+    </div>
+</div>
+
+<footer>
+    &copy; 2026 SSCEC | Learn Tense with Logic
+</footer>
+
+<script>
+    const quizData = [
+        { q: "The sun ________ (rise) in the east.", a: "rises", t: "Present Indefinite" },
+        { q: "I ________ (read) a book now.", a: "am reading", t: "Present Continuous" },
+        { q: "She ________ (finish) her homework already.", a: "has finished", t: "Present Perfect" },
+        { q: "They ________ (play) for two hours.", a: "have been playing", t: "Present Perfect Continuous" },
+        { q: "Water ________ (boil) at 100 degrees Celsius.", a: "boils", t: "Present Indefinite" },
+        { q: "Look! The cat ________ (chase) a mouse.", a: "is chasing", t: "Present Continuous" },
+        { q: "He ________ (go) to school every day.", a: "goes", t: "Present Indefinite" },
+        { q: "We ________ (see) this movie before.", a: "have seen", t: "Present Perfect" },
+        { q: "It ________ (rain) since morning.", a: "has been raining", t: "Present Perfect Continuous" },
+        { q: "Listen! Someone ________ (knock) at the door.", a: "is knocking", t: "Present Continuous" },
+        { q: "The train ________ (leave) at 10 AM sharp.", a: "leaves", t: "Present Indefinite" },
+        { q: "I ________ (know) him for five years.", a: "have known", t: "Present Perfect" },
+        { q: "She ________ (cry) for ten minutes.", a: "has been crying", t: "Present Perfect Continuous" },
+        { q: "Honesty ________ (be) the best policy.", a: "is", t: "Present Indefinite" },
+        { q: "They ________ (watch) TV at this moment.", a: "are watching", t: "Present Continuous" },
+        { q: "I ________ (not receive) the letter yet.", a: "have not received", t: "Present Perfect" },
+        { q: "He ________ (suffer) from fever for three days.", a: "has been suffering", t: "Present Perfect Continuous" },
+        { q: "The Earth ________ (move) round the sun.", a: "moves", t: "Present Indefinite" },
+        { q: "Wait! I ________ (come) with you.", a: "am coming", t: "Present Continuous" },
+        { q: "They ________ (already win) the match.", a: "have already won", t: "Present Perfect" },
+        { q: "We ________ (study) since 8 PM.", a: "have been studying", t: "Present Perfect Continuous" },
+        { q: "Do you ________ (play) football?", a: "play", t: "Present Indefinite" },
+        { q: "The baby ________ (sleep) peacefully now.", a: "is sleeping", t: "Present Continuous" },
+        { q: "She ________ (lose) her gold ring.", a: "has lost", t: "Present Perfect" },
+        { q: "He ________ (wait) for the bus for an hour.", a: "has been waiting", t: "Present Perfect Continuous" },
+        { q: "Birds ________ (fly) in the sky.", a: "fly", t: "Present Indefinite" },
+        { q: "Why ________ you ________ (cry)?", a: "are (you) crying", t: "Present Continuous" },
+        { q: "The clock ________ (just strike) twelve.", a: "has just struck", t: "Present Perfect" },
+        { q: "I ________ (live) in Kolkata for ten years.", a: "have been living", t: "Present Perfect Continuous" },
+        { q: "He ________ (not like) tea.", a: "does not like", t: "Present Indefinite" },
+        { q: "They ________ (run) in the field now.", a: "are running", t: "Present Continuous" },
+        { q: "Who ________ (break) this glass?", a: "has broken", t: "Present Perfect" },
+        { q: "It ________ (snow) since yesterday.", a: "has been snowing", t: "Present Perfect Continuous" },
+        { q: "I ________ (be) a student.", a: "am", t: "Present Indefinite" },
+        { q: "She ________ (sing) a song now.", a: "is singing", t: "Present Continuous" },
+        { q: "We ________ (just reach) home.", a: "have just reached", t: "Present Perfect" },
+        { q: "The gardener ________ (water) the plants since morning.", a: "has been watering", t: "Present Perfect Continuous" },
+        { q: "Does he ________ (speak) English?", a: "speak", t: "Present Indefinite" },
+        { q: "What ________ you ________ (do) at present?", a: "are (you) doing", t: "Present Continuous" },
+        { q: "He ________ (forget) my name.", a: "has forgotten", t: "Present Perfect" },
+        { q: "They ________ (talk) for thirty minutes.", a: "have been talking", t: "Present Perfect Continuous" },
+        { q: "My mother ________ (cook) food every day.", a: "cooks", t: "Present Indefinite" },
+        { q: "I ________ (not work) right now.", a: "am not working", t: "Present Continuous" },
+        { q: "She ________ (not see) him lately.", a: "has not seen", t: "Present Perfect" },
+        { q: "We ________ (prepare) for the exam since March.", a: "have been preparing", t: "Present Perfect Continuous" },
+        { q: "The dog ________ (bark) at night.", a: "barks", t: "Present Indefinite" },
+        { q: "Are they ________ (play) cricket?", a: "playing", t: "Present Continuous" },
+        { q: "You ________ (make) a mistake.", a: "have made", t: "Present Perfect" },
+        { q: "He ________ (search) for a job for months.", a: "has been searching", t: "Present Perfect Continuous" },
+        { q: "Fortune ________ (favor) the brave.", a: "favors", t: "Present Indefinite" }
+    ];
+
+    const container = document.getElementById('quiz-container');
+
+    quizData.forEach((item, index) => {
+        const quizDiv = document.createElement('div');
+        quizDiv.className = 'quiz-item';
+        
+        quizDiv.innerHTML = `
+            <div class="tag">${item.t}</div>
+            <div class="question">${index + 1}. ${item.q.replace('________', '<span class="blank-space">_______</span>')}</div>
+            <button class="answer-btn" onclick="toggleAnswer(${index})">উত্তর দেখুন</button>
+            <div id="ans-${index}" class="answer-text">সঠিক উত্তর: ${item.a}</div>
+        `;
+        container.appendChild(quizDiv);
+    });
+
+    function toggleAnswer(id) {
+        const ans = document.getElementById('ans-' + id);
+        if (ans.style.display === 'block') {
+            ans.style.display = 'none';
+        } else {
+            ans.style.display = 'block';
+        }
+    }
+</script>
+
+</body>
+</html>
