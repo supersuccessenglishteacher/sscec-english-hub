@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSCEC Digital English Portal - Bipul Sarkar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --accent: #0ea5e9;
+            --gold: #facc15;
+            --bg: #0f172a;
+            --card-bg: rgba(255, 255, 255, 0.05);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+            background-color: var(--bg);
+            color: #f8fafc;
+            line-height: 1.6;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+        
+        header {
+            text-align: center;
+            padding-bottom: 50px;
+            border-bottom: 2px solid rgba(255,255,255,0.1);
+        }
+        .center-name { font-size: 38px; color: var(--gold); font-weight: 700; }
+        .trainer-info { font-size: 20px; color: var(--accent); margin: 10px 0; }
+
+        .serial-section { margin-top: 50px; }
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .serial-num {
+            background: var(--gold);
+            color: var(--bg);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 20px;
+        }
+        .section-title { font-size: 28px; font-weight: 600; color: #fff; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        .card:hover {
+            background: rgba(14, 165, 233, 0.1);
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+        .card h3 { font-size: 19px; color: #fff; margin-bottom: 8px; }
+        .card p { font-size: 14px; color: #94a3b8; margin-bottom: 15px; flex-grow: 1; }
+        .btn-group { display: flex; gap: 10px; }
+        .mini-btn {
+            flex: 1;
+            padding: 8px;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 13px;
+            text-decoration: none;
+        }
+        .affirmative-btn { background: #10b981; color: white; }
+        .negative-btn { background: #ef4444; color: white; }
+        
+        .main-btn {
+            background: var(--accent);
+            color: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        footer { text-align: center; margin-top: 80px; opacity: 0.7; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1 class="center-name">Super Success Computer Education Center</h1>
+        <p class="trainer-info">English Trainer & Author: Bipul Sarkar</p>
+    </header>
+
+    <div class="serial-section">
+        <div class="section-header">
+            <div class="serial-num">1</div>
+            <h2 class="section-title">Detailed Tense Lessons</h2>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <h3>Present Indefinite</h3>
+                <p>বর্তমান কালের সাধারণ কাজের গঠন ও নিয়ম শিখুন।</p>
+                <div class="btn-group">
+                    <a href="sscec_present_indefinite_affirmative_sentences.html" class="mini-btn affirmative-btn">Affirmative</a>
+                    <a href="sscec_present_indefinite_negative_sentences.html" class="mini-btn negative-btn">Negative</a>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Present Continuous</h3>
+                <p>বর্তমানে কোনো কাজ চলছে এমন বাক্যের গঠন।</p>
+                <div class="btn-group">
+                    <a href="sscec_present_continuous.html" class="mini-btn affirmative-btn">Affirmative</a>
+                    <a href="sscec_present_continuous_negative.html" class="mini-btn negative-btn">Negative</a>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Present Perfect</h3>
+                <p>কাজ শেষ হয়েছে কিন্তু ফল বাকি আছে এমন বাক্য।</p>
+                <div class="btn-group">
+                    <a href="sscec_present_perfect_affirmative.html" class="mini-btn affirmative-btn">Affirmative</a>
+                    <a href="sscec_present_perfect_negative.html" class="mini-btn negative-btn">Negative</a>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Perfect Continuous</h3>
+                <p>দীর্ঘ সময় ধরে চলা কাজের সঠিক বর্ণনা।</p>
+                <div class="btn-group">
+                    <a href="sscec_present_perfect_continuous_affirmative_4.html" class="mini-btn affirmative-btn">Affirmative</a>
+                    <a href="present_perfect_continuous_negative_sscec.html" class="mini-btn negative-btn">Negative</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="serial-section">
+        <div class="section-header">
+            <div class="serial-num">2</div>
+            <h2 class="section-title">Grammar & Translation</h2>
+        </div>
+        <div class="grid">
+            <a href="present_tense_transformation_sscec.html" class="card">
+                <h3>Sentence Transformation</h3>
+                <p>৫০টি বাক্য পরিবর্তনের ইন্টারঅ্যাক্টিভ প্র্যাকটিস সেট।</p>
+                <div class="main-btn">শিখুন</div>
+            </a>
+            <a href="translation_practice_sscec.html" class="card">
+                <h3>Translation Practice</h3>
+                <p>বাংলা থেকে ইংরেজি অনুবাদের মাধ্যমে স্পোকেন ইংলিশ শিখুন।</p>
+                <div class="main-btn">অনুশীলন করুন</div>
+            </a>
+            <a href="error_correction_sscec.html" class="card">
+                <h3>Error Correction</h3>
+                <p>সাধারণ ইংরেজি ভুলগুলো চিহ্নিত ও সংশোধন করুন।</p>
+                <div class="main-btn">ভুল সংশোধন করুন</div>
+            </a>
+            <a href="since_for_practice_sscec.html" class="card">
+                <h3>Since vs For Use</h3>
+                <p>সময় বোঝাতে Since এবং For-এর সঠিক ব্যবহার।</p>
+                <div class="main-btn">বিস্তারিত দেখুন</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="serial-section">
+        <div class="section-header">
+            <div class="serial-num">3</div>
+            <h2 class="section-title">Quizzes & Mock Tests</h2>
+        </div>
+        <div class="grid">
+            <a href="mock_test_sscec.html" class="card" style="border: 2px solid var(--gold);">
+                <h3>Full Mock Test</h3>
+                <p>৫০ নম্বরের সম্পূর্ণ টেস্ট এবং সাথে সাথে রিপোর্ট কার্ড।</p>
+                <div class="main-btn" style="background:var(--gold); color:var(--bg)">টেস্ট শুরু করুন</div>
+            </a>
+            <a href="present_tense_interactive_quiz_sscec.html" class="card">
+                <h3>Interactive Quiz</h3>
+                <p>Present Tense-এর ওপর একটি মজার কুইজ সেট।</p>
+                <div class="main-btn">কুইজ দিন</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="serial-section">
+        <div class="section-header">
+            <div class="serial-num">4</div>
+            <h2 class="section-title">Spoken & Conversations</h2>
+        </div>
+        <div class="grid">
+            <a href="Spoken_English_Conversations.html" class="card">
+                <h3>English Conversations</h3>
+                <p>দৈনন্দিন জীবনের ইংরেজি কথোপকথন প্র্যাকটিস করুন।</p>
+                <div class="main-btn">কথোপকথন দেখুন</div>
+            </a>
+            <a href="Spoken_English_Sentence_Structure.html" class="card">
+                <h3>Sentence Structure</h3>
+                <p>স্পোকেন ইংলিশের জন্য প্রয়োজনীয় বাক্য গঠনের কাঠামো।</p>
+                <div class="main-btn">গঠন দেখুন</div>
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 SSCEC Digital English Hub | Designed by Bipul Sarkar</p>
+        <p>Nimta, Kolkata - 700049 | WhatsApp: 8017247298</p>
+    </footer>
+</div>
+
+</body>
+</html>
